@@ -70,27 +70,21 @@
                                         <rect key="frame" x="36" y="545" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="button1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="umE-d7-Thz"/>
-                                            <action selector="choice1:" destination="8ec-hn-tTT" eventType="touchUpInside" id="VZn-Bt-ffk"/>
-                                            <action selector="choice1:" destination="QeL-q6-g6r" eventType="touchUpInside" id="wiw-wO-931"/>
+                                            <action selector="choice1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tme-iq-dJz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-FG-cCg">
                                         <rect key="frame" x="141" y="545" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="button2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EpB-xd-rps"/>
-                                            <action selector="choice2:" destination="Kvz-Kj-rnj" eventType="touchUpInside" id="Lpz-sI-Kzq"/>
-                                            <action selector="choice2:" destination="QeL-q6-g6r" eventType="touchUpInside" id="kuO-CS-FRh"/>
+                                            <action selector="choice2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0OH-lI-Hvt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdo-m8-P1P">
                                         <rect key="frame" x="247" y="545" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="button3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bzs-g4-V7D"/>
-                                            <action selector="choice3:" destination="7DZ-E9-euE" eventType="touchUpInside" id="P1l-Jg-UP1"/>
-                                            <action selector="choice3:" destination="QeL-q6-g6r" eventType="touchUpInside" id="WQO-Du-bwt"/>
+                                            <action selector="choice3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M0y-EA-8ls"/>
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ec-hn-tTT" customClass="ModelView" customModule="Instagrid" customModuleProvider="target">
@@ -138,6 +132,20 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.062745098040000002" green="0.40000000000000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOfset">
+                                                <size key="value" width="0.0" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="image1" destination="3L9-Lg-fvm" id="7cz-DK-sjB"/>
                                             <outlet property="model3" destination="7DZ-E9-euE" id="mz1-mc-1bj"/>
@@ -266,20 +274,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="choice1" destination="5ee-0r-GZo" id="oyD-MQ-aGc"/>
-                        <outlet property="choice2" destination="MLh-EP-POe" id="ekc-F9-YB2"/>
-                        <outlet property="choice3" destination="YbJ-Xf-OCC" id="WwW-kp-IGc"/>
-                        <outlet property="model1" destination="8ec-hn-tTT" id="UJW-ub-ckg"/>
-                        <outlet property="model2" destination="Kvz-Kj-rnj" id="8dg-iz-rZF"/>
-                        <outlet property="model3" destination="7DZ-E9-euE" id="Ce6-0i-H3d"/>
-                        <outlet property="selected1" destination="3L9-Lg-fvm" id="5aF-6y-DPc"/>
-                        <outlet property="selected2" destination="1Ok-Aw-Zla" id="mzx-t9-jvK"/>
-                        <outlet property="selected3" destination="t0Y-ES-TKF" id="K5W-kc-3P5"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="QeL-q6-g6r" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="132" y="133.5832083958021"/>
         </scene>

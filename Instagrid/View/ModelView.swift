@@ -17,17 +17,8 @@ class ModelView: UIView {
     @IBOutlet var selected2 :UIImageView?
     @IBOutlet var selected3 :UIImageView?
     
-    @IBAction func choice1(_ sender: Any) {
-        setModel(.model1)
-    }
+   
     
-    @IBAction func choice2(_ sender: Any) {
-        setModel(.model2)
-    }
-    
-    @IBAction func choice3(_ sender: Any) {
-        setModel(.model3)
-    }
     
     enum Model  {
         case model1, model2, model3
