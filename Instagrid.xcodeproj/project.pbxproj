@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04844F062254AFAE0077E06F /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04844F052254AFAE0077E06F /* ModelView.swift */; };
 		04EEC89D2253656100F9ACA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEC89C2253656100F9ACA1 /* AppDelegate.swift */; };
 		04EEC89F2253656100F9ACA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEC89E2253656100F9ACA1 /* ViewController.swift */; };
 		04EEC8A22253656100F9ACA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04EEC8A02253656100F9ACA1 /* Main.storyboard */; };
@@ -18,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04844F052254AFAE0077E06F /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
+		041B7C0B225663EB00735173 /* VAGRoundedStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Light.otf"; sourceTree = "<group>"; };
 		04EEC8992253656100F9ACA1 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EEC89C2253656100F9ACA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04EEC89E2253656100F9ACA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				04EEC8A02253656100F9ACA1 /* Main.storyboard */,
-				04844F052254AFAE0077E06F /* ModelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +97,7 @@
 				04EEC8A52253656300F9ACA1 /* LaunchScreen.storyboard */,
 				04EEC8B22253711100F9ACA1 /* Delm-Medium.otf */,
 				04EEC8B02253710300F9ACA1 /* ThirstySoftRegular.otf */,
+				041B7C0B225663EB00735173 /* VAGRoundedStd-Light.otf */,
 				04EEC8A32253656300F9ACA1 /* Assets.xcassets */,
 				04EEC89C2253656100F9ACA1 /* AppDelegate.swift */,
 			);
@@ -178,7 +177,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04844F062254AFAE0077E06F /* ModelView.swift in Sources */,
 				04EEC89F2253656100F9ACA1 /* ViewController.swift in Sources */,
 				04EEC89D2253656100F9ACA1 /* AppDelegate.swift in Sources */,
 			);
