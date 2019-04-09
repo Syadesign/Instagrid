@@ -52,75 +52,164 @@
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qbC-t2-p1D" userLabel="topStackView">
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="127"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzt-Jf-K1p" userLabel="topLeftButton">
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-ad-UlQ" userLabel="viewTopLeft">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l7n-f2-IFe">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                    </imageView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzt-Jf-K1p" userLabel="topLeftButton">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
+                                                                        <state key="normal" title="+">
+                                                                            <color key="titleColor" red="0.30588235289999999" green="0.56862745100000001" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="topLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tys-gg-g84"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <accessibility key="accessibilityConfiguration" label="viewTopLeft"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="127" id="W5s-YM-yfa"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Yzt-Jf-K1p" secondAttribute="bottom" id="8eb-NN-jrB"/>
+                                                                    <constraint firstItem="Yzt-Jf-K1p" firstAttribute="leading" secondItem="yqc-ad-UlQ" secondAttribute="leading" id="8lQ-Qp-J71"/>
+                                                                    <constraint firstItem="l7n-f2-IFe" firstAttribute="top" secondItem="yqc-ad-UlQ" secondAttribute="top" id="Txd-7s-ybN"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="l7n-f2-IFe" secondAttribute="bottom" id="f9b-oe-zNy"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="l7n-f2-IFe" secondAttribute="trailing" id="fky-ya-uOp"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Yzt-Jf-K1p" secondAttribute="trailing" id="fwo-GW-PsT"/>
+                                                                    <constraint firstItem="Yzt-Jf-K1p" firstAttribute="top" secondItem="yqc-ad-UlQ" secondAttribute="top" id="gKG-Js-xJV"/>
+                                                                    <constraint firstItem="l7n-f2-IFe" firstAttribute="leading" secondItem="yqc-ad-UlQ" secondAttribute="leading" id="v1V-BS-RjZ"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
-                                                                <state key="normal" title="+">
-                                                                    <color key="titleColor" red="0.30588235289999999" green="0.56862745100000001" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="topLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tys-gg-g84"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cp6-n0-LxW" userLabel="topRightButton">
+                                                            </view>
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GA6-KU-5gK" userLabel="viewTopRight">
                                                                 <rect key="frame" x="143" y="0.0" width="127" height="127"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yI0-IH-ULd">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                    </imageView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cp6-n0-LxW" userLabel="topRightButton">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
+                                                                        <state key="normal" title="+">
+                                                                            <color key="titleColor" red="0.30588235289999999" green="0.56862745100000001" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="topRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p2I-V3-nkr"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="127" id="wV3-L6-Ig4"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="yI0-IH-ULd" secondAttribute="bottom" id="5j0-8X-qF9"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="yI0-IH-ULd" secondAttribute="trailing" id="Cch-5W-Bqx"/>
+                                                                    <constraint firstItem="yI0-IH-ULd" firstAttribute="leading" secondItem="GA6-KU-5gK" secondAttribute="leading" id="NzY-26-wLO"/>
+                                                                    <constraint firstItem="cp6-n0-LxW" firstAttribute="top" secondItem="GA6-KU-5gK" secondAttribute="top" id="Ynz-yb-I87"/>
+                                                                    <constraint firstItem="cp6-n0-LxW" firstAttribute="leading" secondItem="GA6-KU-5gK" secondAttribute="leading" id="ZJl-07-Blm"/>
+                                                                    <constraint firstItem="yI0-IH-ULd" firstAttribute="top" secondItem="GA6-KU-5gK" secondAttribute="top" id="ZZF-73-Vvx"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="cp6-n0-LxW" secondAttribute="trailing" id="jU5-M8-e3D"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="cp6-n0-LxW" secondAttribute="bottom" id="klq-cY-AZj"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
-                                                                <state key="normal" title="+">
-                                                                    <color key="titleColor" red="0.30588235289999999" green="0.56862745100000001" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="topRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p2I-V3-nkr"/>
-                                                                </connections>
-                                                            </button>
+                                                            </view>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="yqc-ad-UlQ" firstAttribute="top" secondItem="qbC-t2-p1D" secondAttribute="top" id="03g-Jp-Bbg"/>
+                                                            <constraint firstItem="yqc-ad-UlQ" firstAttribute="leading" secondItem="qbC-t2-p1D" secondAttribute="leading" id="718-2a-b5J"/>
                                                             <constraint firstAttribute="height" constant="127" id="GFo-3F-vuq"/>
                                                             <constraint firstAttribute="width" constant="270" id="Ibe-8W-f7Y"/>
+                                                            <constraint firstItem="yqc-ad-UlQ" firstAttribute="top" secondItem="qbC-t2-p1D" secondAttribute="top" id="SEn-Tg-Ic2"/>
+                                                            <constraint firstItem="yqc-ad-UlQ" firstAttribute="leading" secondItem="qbC-t2-p1D" secondAttribute="leading" id="UbW-PJ-xjo"/>
+                                                            <constraint firstAttribute="bottom" secondItem="GA6-KU-5gK" secondAttribute="bottom" id="abx-ws-5A6"/>
+                                                            <constraint firstAttribute="bottom" secondItem="GA6-KU-5gK" secondAttribute="bottom" id="cJz-9y-RUM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="GA6-KU-5gK" secondAttribute="trailing" id="hRX-3r-HMl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="GA6-KU-5gK" secondAttribute="trailing" id="ipA-CB-r5z"/>
+                                                            <constraint firstAttribute="bottom" secondItem="yqc-ad-UlQ" secondAttribute="bottom" id="l45-Qj-plo"/>
+                                                            <constraint firstItem="GA6-KU-5gK" firstAttribute="top" secondItem="qbC-t2-p1D" secondAttribute="top" id="mDb-av-Zq5"/>
+                                                            <constraint firstItem="GA6-KU-5gK" firstAttribute="top" secondItem="qbC-t2-p1D" secondAttribute="top" id="ruG-Jm-drb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="yqc-ad-UlQ" secondAttribute="bottom" id="xUf-zc-uOo"/>
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZuX-WG-gTP" userLabel="bottomStackView">
                                                         <rect key="frame" x="0.0" y="143" width="270" height="127"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anM-PU-bKr" userLabel="bottomLeftButton">
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-30-wG4" userLabel="viewBottomLeft">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MXD-RT-3mq">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                    </imageView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anM-PU-bKr" userLabel="bottomLeftButton">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
+                                                                        <state key="normal" title="+">
+                                                                            <color key="titleColor" red="0.30588235289999999" green="0.56862745100000001" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="bottomLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lls-m2-PVe"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="127" id="yyG-FZ-cSl"/>
+                                                                    <constraint firstItem="MXD-RT-3mq" firstAttribute="leading" secondItem="eSy-30-wG4" secondAttribute="leading" id="A3e-oo-EiF"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="anM-PU-bKr" secondAttribute="trailing" id="Art-HK-oeG"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="anM-PU-bKr" secondAttribute="bottom" id="gc7-ra-Jzj"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="MXD-RT-3mq" secondAttribute="trailing" id="glQ-0C-uIu"/>
+                                                                    <constraint firstItem="anM-PU-bKr" firstAttribute="leading" secondItem="eSy-30-wG4" secondAttribute="leading" id="kSq-kh-2IB"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="MXD-RT-3mq" secondAttribute="bottom" id="tO9-xN-U7i"/>
+                                                                    <constraint firstItem="anM-PU-bKr" firstAttribute="top" secondItem="eSy-30-wG4" secondAttribute="top" id="xGi-B6-U8r"/>
+                                                                    <constraint firstItem="MXD-RT-3mq" firstAttribute="top" secondItem="eSy-30-wG4" secondAttribute="top" id="xpd-cM-IMZ"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
-                                                                <state key="normal" title="+">
-                                                                    <color key="titleColor" red="0.30588235289999999" green="0.56862745100000001" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="bottomLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lls-m2-PVe"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrv-dj-8UT" userLabel="bottomRightButton">
+                                                            </view>
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qrl-Pn-p9o" userLabel="viewBottomRight">
                                                                 <rect key="frame" x="143" y="0.0" width="127" height="127"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="frF-uH-Ti0">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                    </imageView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrv-dj-8UT" userLabel="bottomRightButton">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
+                                                                        <state key="normal" title="+">
+                                                                            <color key="titleColor" red="0.30588235289999999" green="0.56862745100000001" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="bottomRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tIk-Ww-vh3"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="127" id="ATq-N7-9Rk"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="lrv-dj-8UT" secondAttribute="trailing" id="2SJ-Px-XjU"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="frF-uH-Ti0" secondAttribute="trailing" id="ERq-QV-kyF"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="lrv-dj-8UT" secondAttribute="bottom" id="fkD-KH-BcY"/>
+                                                                    <constraint firstItem="frF-uH-Ti0" firstAttribute="top" secondItem="Qrl-Pn-p9o" secondAttribute="top" id="h4I-Aj-BlW"/>
+                                                                    <constraint firstItem="lrv-dj-8UT" firstAttribute="leading" secondItem="Qrl-Pn-p9o" secondAttribute="leading" id="jyZ-cu-jud"/>
+                                                                    <constraint firstItem="frF-uH-Ti0" firstAttribute="leading" secondItem="Qrl-Pn-p9o" secondAttribute="leading" id="lL9-bn-Sji"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="frF-uH-Ti0" secondAttribute="bottom" id="qHy-1J-XWA"/>
+                                                                    <constraint firstItem="lrv-dj-8UT" firstAttribute="top" secondItem="Qrl-Pn-p9o" secondAttribute="top" id="uid-FN-zSW"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
-                                                                <state key="normal" title="+">
-                                                                    <color key="titleColor" red="0.30588235289999999" green="0.56862745100000001" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="bottomRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tIk-Ww-vh3"/>
-                                                                </connections>
-                                                            </button>
+                                                            </view>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="127" id="30K-cD-MDS"/>
+                                                            <constraint firstItem="eSy-30-wG4" firstAttribute="top" secondItem="ZuX-WG-gTP" secondAttribute="top" id="87b-Mu-qn5"/>
+                                                            <constraint firstItem="eSy-30-wG4" firstAttribute="leading" secondItem="ZuX-WG-gTP" secondAttribute="leading" id="GRA-gt-B8y"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Qrl-Pn-p9o" secondAttribute="bottom" id="IcF-GK-ynD"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Qrl-Pn-p9o" secondAttribute="trailing" id="U4Z-FJ-aic"/>
+                                                            <constraint firstItem="eSy-30-wG4" firstAttribute="leading" secondItem="ZuX-WG-gTP" secondAttribute="leading" id="VUM-mH-iCt"/>
                                                             <constraint firstAttribute="width" constant="270" id="b6c-am-biY"/>
+                                                            <constraint firstAttribute="bottom" secondItem="eSy-30-wG4" secondAttribute="bottom" id="eUd-hR-K9p"/>
+                                                            <constraint firstItem="Qrl-Pn-p9o" firstAttribute="top" secondItem="ZuX-WG-gTP" secondAttribute="top" id="mFf-uI-r3s"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Qrl-Pn-p9o" secondAttribute="bottom" id="ofW-Ut-wsk"/>
+                                                            <constraint firstItem="Qrl-Pn-p9o" firstAttribute="top" secondItem="ZuX-WG-gTP" secondAttribute="top" id="tXa-2s-K2g"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Qrl-Pn-p9o" secondAttribute="trailing" id="thG-hX-NNU"/>
+                                                            <constraint firstAttribute="bottom" secondItem="eSy-30-wG4" secondAttribute="bottom" id="v5b-91-dZY"/>
+                                                            <constraint firstItem="eSy-30-wG4" firstAttribute="top" secondItem="ZuX-WG-gTP" secondAttribute="top" id="yRb-XU-jGv"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -143,8 +232,13 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="bottomStackView" destination="ZuX-WG-gTP" id="chd-BB-sfY"/>
+                                            <outlet property="gridStackView" destination="M6M-9n-Um7" id="KAn-yr-lLC"/>
                                             <outlet property="gridView" destination="M6M-9n-Um7" id="yAo-7h-j4i"/>
                                             <outlet property="topStackView" destination="qbC-t2-p1D" id="um7-gw-aml"/>
+                                            <outlet property="viewBottomLeft" destination="eSy-30-wG4" id="0q7-fZ-HeA"/>
+                                            <outlet property="viewBottomRight" destination="Qrl-Pn-p9o" id="ToD-3x-X6H"/>
+                                            <outlet property="viewTopLeft" destination="yqc-ad-UlQ" id="G3d-es-IV9"/>
+                                            <outlet property="viewTopRight" destination="GA6-KU-5gK" id="1dT-J7-FaD"/>
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Mur-u6-jET" userLabel="ModelsStackView">
@@ -154,6 +248,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                 <state key="normal" image="Selected1" backgroundImage="model1"/>
                                                 <connections>
+                                                    <action selector="ButtonModel1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vAr-kF-31e"/>
                                                     <action selector="buttonModel1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JGo-EZ-TMJ"/>
                                                     <action selector="choice1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tme-iq-dJz"/>
                                                 </connections>
@@ -162,6 +257,7 @@
                                                 <rect key="frame" x="105" y="0.0" width="80" height="80"/>
                                                 <state key="normal" image="Selected2" backgroundImage="model2"/>
                                                 <connections>
+                                                    <action selector="ButtonModel2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UzQ-7B-Ecs"/>
                                                     <action selector="buttonModel2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dE4-ml-qdE"/>
                                                     <action selector="choice2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0OH-lI-Hvt"/>
                                                 </connections>
@@ -170,6 +266,7 @@
                                                 <rect key="frame" x="210" y="0.0" width="80" height="80"/>
                                                 <state key="normal" image="Selected3" backgroundImage="model3"/>
                                                 <connections>
+                                                    <action selector="ButtoModel3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ifF-hN-ytA"/>
                                                     <action selector="buttonModel3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0EO-wX-j78"/>
                                                     <action selector="choice3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M0y-EA-8ls"/>
                                                 </connections>

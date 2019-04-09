@@ -14,6 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    var gridView : GridView?
 
     @IBOutlet weak var logo: UIImageView!
 
@@ -21,7 +23,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var swipeLabel: UILabel!
     
-    @IBOutlet weak var gridView: GridView!
     
     @IBOutlet weak var bottomRight: UIButton!
     @IBOutlet weak var bottomLeft: UIButton!
@@ -41,31 +42,16 @@ class ViewController: UIViewController {
     @IBAction func bottomRightButton(_ sender: Any) {
     }
     
-    enum Style {
-        case model1, model2, model3
+    @IBAction func ButtonModel1(_ sender: Any) {
+    gridView?.setStyle(.model1)
     }
     
-    private func setStyle(_ style: Style) {
-        switch style {
-        case .model1:
-            topLeft.isHidden = true
-        case .model2:
-            bottomLeft.isHidden = true
-        case .model3:
-            topLeft.isHidden = false
-        }
-    }
-
-    @IBAction func buttonModel1(_ sender: Any) {
-        setStyle(.model1)
+    @IBAction func ButtonModel2(_ sender: Any) {
+        gridView?.setStyle(.model2)
     }
     
-    @IBAction func buttonModel2(_ sender: Any) {
-        setStyle(.model2)
+    @IBAction func ButtoModel3(_ sender: Any) {
+        gridView?.setStyle(.model3)
     }
     
-    @IBAction func buttonModel3(_ sender: Any) {
-        setStyle(.model3)
-    }
 }
-
