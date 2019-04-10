@@ -243,31 +243,93 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Mur-u6-jET" userLabel="ModelsStackView">
                                         <rect key="frame" x="42.5" y="545" width="290" height="80"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDE-Gc-rhc">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lM8-UJ-e4r">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                <state key="normal" image="Selected1" backgroundImage="model1"/>
-                                                <connections>
-                                                    <action selector="ButtonModel1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vAr-kF-31e"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-FG-cCg">
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDE-Gc-rhc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                        <state key="normal" backgroundImage="model1"/>
+                                                        <connections>
+                                                            <action selector="ButtonModel1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vAr-kF-31e"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected1" translatesAutoresizingMaskIntoConstraints="NO" id="dJ6-8v-rSB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="FDE-Gc-rhc" firstAttribute="leading" secondItem="lM8-UJ-e4r" secondAttribute="leading" id="NWH-8r-EpO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FDE-Gc-rhc" secondAttribute="trailing" id="Ugf-ta-i3E"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dJ6-8v-rSB" secondAttribute="bottom" id="ZUH-tt-Rha"/>
+                                                    <constraint firstItem="dJ6-8v-rSB" firstAttribute="leading" secondItem="lM8-UJ-e4r" secondAttribute="leading" id="dwe-Fz-ldI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dJ6-8v-rSB" secondAttribute="trailing" id="eoc-zj-gXj"/>
+                                                    <constraint firstItem="FDE-Gc-rhc" firstAttribute="top" secondItem="lM8-UJ-e4r" secondAttribute="top" id="fML-dt-NAG"/>
+                                                    <constraint firstItem="dJ6-8v-rSB" firstAttribute="top" secondItem="lM8-UJ-e4r" secondAttribute="top" id="qlE-kW-uDc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="FDE-Gc-rhc" secondAttribute="bottom" id="vlJ-S7-FBV"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbJ-qx-tcq">
                                                 <rect key="frame" x="105" y="0.0" width="80" height="80"/>
-                                                <state key="normal" image="Selected2" backgroundImage="model2"/>
-                                                <connections>
-                                                    <action selector="ButtonModel2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UzQ-7B-Ecs"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdo-m8-P1P">
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-FG-cCg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                        <state key="normal" backgroundImage="model2"/>
+                                                        <connections>
+                                                            <action selector="ButtonModel2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UzQ-7B-Ecs"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Selected2" translatesAutoresizingMaskIntoConstraints="NO" id="pwe-aE-Jbf">
+                                                        <rect key="frame" x="-0.5" y="0.0" width="80" height="80"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="bv1-FG-cCg" secondAttribute="bottom" id="2j7-e9-59C"/>
+                                                    <constraint firstItem="bv1-FG-cCg" firstAttribute="leading" secondItem="GbJ-qx-tcq" secondAttribute="leading" id="53O-2O-0be"/>
+                                                    <constraint firstItem="bv1-FG-cCg" firstAttribute="top" secondItem="GbJ-qx-tcq" secondAttribute="top" id="P4Z-t4-AcY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bv1-FG-cCg" secondAttribute="trailing" id="bIm-of-Xpd"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mml-LT-rIP">
                                                 <rect key="frame" x="210" y="0.0" width="80" height="80"/>
-                                                <state key="normal" image="Selected3" backgroundImage="model3"/>
-                                                <connections>
-                                                    <action selector="ButtoModel3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ifF-hN-ytA"/>
-                                                </connections>
-                                            </button>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdo-m8-P1P">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                        <state key="normal" backgroundImage="model3"/>
+                                                        <connections>
+                                                            <action selector="ButtoModel3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ifF-hN-ytA"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Selected3" translatesAutoresizingMaskIntoConstraints="NO" id="bmd-BL-0tT">
+                                                        <rect key="frame" x="-0.5" y="0.0" width="80" height="80"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="Bdo-m8-P1P" firstAttribute="leading" secondItem="mml-LT-rIP" secondAttribute="leading" id="DHO-0t-oHX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Bdo-m8-P1P" secondAttribute="trailing" id="OdD-eJ-h7a"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Bdo-m8-P1P" secondAttribute="bottom" id="bQ8-73-dVz"/>
+                                                    <constraint firstItem="Bdo-m8-P1P" firstAttribute="top" secondItem="mml-LT-rIP" secondAttribute="top" id="rSg-AW-seb"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="mml-LT-rIP" secondAttribute="trailing" id="Ay7-GB-M7w"/>
+                                            <constraint firstAttribute="bottom" secondItem="lM8-UJ-e4r" secondAttribute="bottom" id="CCE-pv-NBn"/>
+                                            <constraint firstItem="lM8-UJ-e4r" firstAttribute="leading" secondItem="Mur-u6-jET" secondAttribute="leading" id="F2J-Hp-Ds6"/>
                                             <constraint firstAttribute="width" constant="290" id="KRi-Tp-oE9"/>
+                                            <constraint firstItem="lM8-UJ-e4r" firstAttribute="top" secondItem="Mur-u6-jET" secondAttribute="top" id="Kdy-A8-0hE"/>
                                             <constraint firstAttribute="height" constant="80" id="LhX-Qm-FIX"/>
+                                            <constraint firstAttribute="bottom" secondItem="GbJ-qx-tcq" secondAttribute="bottom" id="NhN-Fm-nQw"/>
+                                            <constraint firstItem="mml-LT-rIP" firstAttribute="top" secondItem="Mur-u6-jET" secondAttribute="top" id="RVk-Uv-vl2"/>
+                                            <constraint firstItem="GbJ-qx-tcq" firstAttribute="top" secondItem="Mur-u6-jET" secondAttribute="top" id="RyP-z4-51P"/>
+                                            <constraint firstAttribute="bottom" secondItem="mml-LT-rIP" secondAttribute="bottom" id="aBn-QS-OHK"/>
+                                            <constraint firstItem="lM8-UJ-e4r" firstAttribute="top" secondItem="Mur-u6-jET" secondAttribute="top" id="ahp-TQ-8ZP"/>
+                                            <constraint firstItem="lM8-UJ-e4r" firstAttribute="leading" secondItem="Mur-u6-jET" secondAttribute="leading" id="dbA-dI-qdO"/>
+                                            <constraint firstAttribute="bottom" secondItem="lM8-UJ-e4r" secondAttribute="bottom" id="ocM-4R-mN1"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -304,7 +366,14 @@
                         <outlet property="button2" destination="bv1-FG-cCg" id="ATv-t3-1s7"/>
                         <outlet property="button3" destination="Bdo-m8-P1P" id="gSf-Ia-4mt"/>
                         <outlet property="gridView" destination="lxL-Dq-OVh" id="k93-Qw-v2b"/>
+                        <outlet property="imageBottomLeft" destination="MXD-RT-3mq" id="dCm-ut-W8w"/>
+                        <outlet property="imageBottomRight" destination="MXD-RT-3mq" id="nAc-Pp-Mct"/>
+                        <outlet property="imageTopLeft" destination="l7n-f2-IFe" id="Hs1-IQ-XmG"/>
+                        <outlet property="imageTopRight" destination="yI0-IH-ULd" id="rO9-Ns-QxW"/>
                         <outlet property="logo" destination="RrQ-dV-B0j" id="8o3-i9-TJ0"/>
+                        <outlet property="selected1" destination="dJ6-8v-rSB" id="Iwj-F7-GZM"/>
+                        <outlet property="selected2" destination="pwe-aE-Jbf" id="sul-BF-DsF"/>
+                        <outlet property="selected3" destination="bmd-BL-0tT" id="zBK-LP-3GA"/>
                         <outlet property="swipeIcon" destination="5BT-2V-3QA" id="fVW-Zc-dSp"/>
                         <outlet property="swipeLabel" destination="aED-aP-CXT" id="nx9-0C-8cX"/>
                         <outlet property="topLeft" destination="Yzt-Jf-K1p" id="AE1-ht-yLu"/>

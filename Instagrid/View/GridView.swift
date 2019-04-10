@@ -28,11 +28,13 @@ class GridView: UIView {
             setStyle(style)
         }
     }
+    
  
     func setStyle(_ style: Style) {
         switch style {
         case .model1:
             viewTopLeft?.isHidden = true
+            viewBottomLeft?.isHidden = false
         case .model2:
             viewBottomLeft?.isHidden = true
             viewTopLeft?.isHidden = false

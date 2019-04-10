@@ -28,6 +28,10 @@ class ViewController: UIViewController {
     @IBOutlet var viewTopRight :UIView?
     @IBOutlet var viewBottomLeft :UIView?
     @IBOutlet var viewBottomRight :UIView?
+    @IBOutlet weak var imageTopLeft: UIImageView!
+    @IBOutlet weak var imageTopRight: UIImageView!
+    @IBOutlet weak var imageBottomLeft: UIImageView!
+    @IBOutlet weak var imageBottomRight: UIImageView!
     
     
     @IBOutlet weak var bottomRight: UIButton!
@@ -39,6 +43,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var selected1: UIImageView!
+    @IBOutlet weak var selected2: UIImageView!
+    @IBOutlet weak var selected3: UIImageView!
+    
     
     @IBAction func topLeftButton(_ sender: Any) {
     }
@@ -52,34 +60,24 @@ class ViewController: UIViewController {
     @IBAction func bottomRightButton(_ sender: Any) {
     }
     
-    func standardStyle () {
-        gridView.style = .model1
-        button1.imageView?.isHidden = false
-        button2.imageView?.isHidden = true
-        button3.imageView?.isHidden = true
-        
+
+    func selected(style: GridView.Style) {
+        gridView?.style = style
+        selected1.isHidden = style != .model1
+        selected2.isHidden = style != .model2
+        selected3.isHidden = style != .model3
     }
     
-    
     @IBAction func ButtonModel1(_ sender: Any) {
-        gridView?.style = .model1
-        button1.imageView?.isHidden = false
-        button2.imageView?.isHidden = true
-        button3.imageView?.isHidden = true
+        selected(style: .model1)
     }
     
     @IBAction func ButtonModel2(_ sender: Any) {
-        gridView?.style = .model2
-        button1.imageView?.isHidden = true
-        button2.imageView?.isHidden = false
-        button3.imageView?.isHidden = true
+        selected(style: .model2)
     }
     
     @IBAction func ButtoModel3(_ sender: Any) {
-        gridView?.style = .model3
-        button1.imageView?.isHidden = true
-        button2.imageView?.isHidden = true
-        button3.imageView?.isHidden = false
+        selected(style: .model3)
     }
     
 }
