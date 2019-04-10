@@ -30,13 +30,13 @@
                                         <rect key="frame" x="126" y="40" width="123" height="35"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-od-cto" userLabel="SwipeUpStackView">
-                                        <rect key="frame" x="82.5" y="130" width="210" height="49.5"/>
+                                        <rect key="frame" x="107.5" y="131.5" width="160.5" height="48"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipeUp" translatesAutoresizingMaskIntoConstraints="NO" id="5BT-2V-3QA">
-                                                <rect key="frame" x="97.5" y="0.0" width="15" height="10"/>
+                                                <rect key="frame" x="72.5" y="0.0" width="15" height="10"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aED-aP-CXT">
-                                                <rect key="frame" x="0.0" y="19" width="210" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="19" width="160.5" height="29"/>
                                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qbC-t2-p1D" userLabel="topStackView">
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="127"/>
                                                         <subviews>
-                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-ad-UlQ" userLabel="viewTopLeft">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-ad-UlQ" userLabel="viewTopLeft">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l7n-f2-IFe">
@@ -83,7 +83,7 @@
                                                                     <constraint firstItem="l7n-f2-IFe" firstAttribute="leading" secondItem="yqc-ad-UlQ" secondAttribute="leading" id="v1V-BS-RjZ"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GA6-KU-5gK" userLabel="viewTopRight">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GA6-KU-5gK" userLabel="viewTopRight">
                                                                 <rect key="frame" x="143" y="0.0" width="127" height="127"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yI0-IH-ULd">
@@ -134,7 +134,7 @@
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZuX-WG-gTP" userLabel="bottomStackView">
                                                         <rect key="frame" x="0.0" y="143" width="270" height="127"/>
                                                         <subviews>
-                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-30-wG4" userLabel="viewBottomLeft">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-30-wG4" userLabel="viewBottomLeft">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MXD-RT-3mq">
@@ -164,7 +164,7 @@
                                                                     <constraint firstItem="MXD-RT-3mq" firstAttribute="top" secondItem="eSy-30-wG4" secondAttribute="top" id="xpd-cM-IMZ"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qrl-Pn-p9o" userLabel="viewBottomRight">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qrl-Pn-p9o" userLabel="viewBottomRight">
                                                                 <rect key="frame" x="143" y="0.0" width="127" height="127"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="frF-uH-Ti0">
@@ -233,7 +233,6 @@
                                         <connections>
                                             <outlet property="bottomStackView" destination="ZuX-WG-gTP" id="chd-BB-sfY"/>
                                             <outlet property="gridStackView" destination="M6M-9n-Um7" id="KAn-yr-lLC"/>
-                                            <outlet property="gridView" destination="M6M-9n-Um7" id="yAo-7h-j4i"/>
                                             <outlet property="topStackView" destination="qbC-t2-p1D" id="um7-gw-aml"/>
                                             <outlet property="viewBottomLeft" destination="eSy-30-wG4" id="0q7-fZ-HeA"/>
                                             <outlet property="viewBottomRight" destination="Qrl-Pn-p9o" id="ToD-3x-X6H"/>
@@ -249,8 +248,6 @@
                                                 <state key="normal" image="Selected1" backgroundImage="model1"/>
                                                 <connections>
                                                     <action selector="ButtonModel1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vAr-kF-31e"/>
-                                                    <action selector="buttonModel1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JGo-EZ-TMJ"/>
-                                                    <action selector="choice1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tme-iq-dJz"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-FG-cCg">
@@ -258,8 +255,6 @@
                                                 <state key="normal" image="Selected2" backgroundImage="model2"/>
                                                 <connections>
                                                     <action selector="ButtonModel2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UzQ-7B-Ecs"/>
-                                                    <action selector="buttonModel2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dE4-ml-qdE"/>
-                                                    <action selector="choice2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0OH-lI-Hvt"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdo-m8-P1P">
@@ -267,8 +262,6 @@
                                                 <state key="normal" image="Selected3" backgroundImage="model3"/>
                                                 <connections>
                                                     <action selector="ButtoModel3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ifF-hN-ytA"/>
-                                                    <action selector="buttonModel3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0EO-wX-j78"/>
-                                                    <action selector="choice3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M0y-EA-8ls"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -307,12 +300,19 @@
                     <connections>
                         <outlet property="bottomLeft" destination="anM-PU-bKr" id="hdd-u0-WmG"/>
                         <outlet property="bottomRight" destination="lrv-dj-8UT" id="gSn-qy-H5m"/>
-                        <outlet property="gridView" destination="lxL-Dq-OVh" id="lwL-dY-jgb"/>
+                        <outlet property="button1" destination="FDE-Gc-rhc" id="NiU-bP-lQO"/>
+                        <outlet property="button2" destination="bv1-FG-cCg" id="ATv-t3-1s7"/>
+                        <outlet property="button3" destination="Bdo-m8-P1P" id="gSf-Ia-4mt"/>
+                        <outlet property="gridView" destination="lxL-Dq-OVh" id="k93-Qw-v2b"/>
                         <outlet property="logo" destination="RrQ-dV-B0j" id="8o3-i9-TJ0"/>
+                        <outlet property="swipeIcon" destination="5BT-2V-3QA" id="fVW-Zc-dSp"/>
                         <outlet property="swipeLabel" destination="aED-aP-CXT" id="nx9-0C-8cX"/>
-                        <outlet property="swipeUp" destination="5BT-2V-3QA" id="9aK-oe-BMV"/>
                         <outlet property="topLeft" destination="Yzt-Jf-K1p" id="AE1-ht-yLu"/>
                         <outlet property="topRight" destination="cp6-n0-LxW" id="bjM-dP-fVI"/>
+                        <outlet property="viewBottomLeft" destination="eSy-30-wG4" id="rwF-hj-XK0"/>
+                        <outlet property="viewBottomRight" destination="Qrl-Pn-p9o" id="74p-UM-gVd"/>
+                        <outlet property="viewTopLeft" destination="yqc-ad-UlQ" id="vTV-ji-uvk"/>
+                        <outlet property="viewTopRight" destination="GA6-KU-5gK" id="chD-tj-JJ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

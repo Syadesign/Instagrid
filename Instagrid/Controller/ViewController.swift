@@ -15,13 +15,19 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    var gridView : GridView?
 
+    @IBOutlet weak var gridView: GridView!
+    
     @IBOutlet weak var logo: UIImageView!
 
     @IBOutlet weak var swipeIcon: UIImageView!
     
     @IBOutlet weak var swipeLabel: UILabel!
+    
+    @IBOutlet var viewTopLeft :UIView?
+    @IBOutlet var viewTopRight :UIView?
+    @IBOutlet var viewBottomLeft :UIView?
+    @IBOutlet var viewBottomRight :UIView?
     
     
     @IBOutlet weak var bottomRight: UIButton!
@@ -29,6 +35,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var topRight: UIButton!
     @IBOutlet weak var topLeft: UIButton!
     
+    
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
     
     @IBAction func topLeftButton(_ sender: Any) {
     }
@@ -42,16 +52,34 @@ class ViewController: UIViewController {
     @IBAction func bottomRightButton(_ sender: Any) {
     }
     
+    func standardStyle () {
+        gridView.style = .model1
+        button1.imageView?.isHidden = false
+        button2.imageView?.isHidden = true
+        button3.imageView?.isHidden = true
+        
+    }
+    
+    
     @IBAction func ButtonModel1(_ sender: Any) {
-    gridView?.setStyle(.model1)
+        gridView?.style = .model1
+        button1.imageView?.isHidden = false
+        button2.imageView?.isHidden = true
+        button3.imageView?.isHidden = true
     }
     
     @IBAction func ButtonModel2(_ sender: Any) {
-        gridView?.setStyle(.model2)
+        gridView?.style = .model2
+        button1.imageView?.isHidden = true
+        button2.imageView?.isHidden = false
+        button3.imageView?.isHidden = true
     }
     
     @IBAction func ButtoModel3(_ sender: Any) {
-        gridView?.setStyle(.model3)
+        gridView?.style = .model3
+        button1.imageView?.isHidden = true
+        button2.imageView?.isHidden = true
+        button3.imageView?.isHidden = false
     }
     
 }

@@ -21,6 +21,13 @@ class GridView: UIView {
     enum Style {
         case model1, model2, model3
     }
+    
+
+    var style :Style = .model1 {
+        didSet {
+            setStyle(style)
+        }
+    }
  
     func setStyle(_ style: Style) {
         switch style {
@@ -28,8 +35,12 @@ class GridView: UIView {
             viewTopLeft?.isHidden = true
         case .model2:
             viewBottomLeft?.isHidden = true
+            viewTopLeft?.isHidden = false
         case .model3:
-            gridStackView?.isHidden = false
+            viewBottomLeft?.isHidden = false
+            viewTopLeft?.isHidden = false
+            viewTopRight?.isHidden = false
+            viewBottomRight?.isHidden = false
         }
     }
 }
