@@ -29,20 +29,22 @@ class GridView: UIView {
         }
     }
     
+    func model(topLeft: Bool, topRight: Bool, bottomLeft: Bool, bottomRight: Bool ) {
+        viewTopLeft?.isHidden = topLeft
+        viewTopRight?.isHidden = topRight
+        viewBottomLeft?.isHidden = bottomLeft
+        viewBottomRight?.isHidden = bottomRight
+    }
+    
  
     func setStyle(_ style: Style) {
         switch style {
         case .model1:
-            viewTopLeft?.isHidden = true
-            viewBottomLeft?.isHidden = false
+           model(topLeft: true, topRight: false, bottomLeft: false, bottomRight: false)
         case .model2:
-            viewBottomLeft?.isHidden = true
-            viewTopLeft?.isHidden = false
+            model(topLeft: false, topRight: false, bottomLeft: true, bottomRight: false)
         case .model3:
-            viewBottomLeft?.isHidden = false
-            viewTopLeft?.isHidden = false
-            viewTopRight?.isHidden = false
-            viewBottomRight?.isHidden = false
+            model(topLeft: false, topRight: false, bottomLeft: false, bottomRight: false)
         }
     }
 }
