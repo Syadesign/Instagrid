@@ -238,6 +238,10 @@
                                             <outlet property="viewBottomRight" destination="Qrl-Pn-p9o" id="ToD-3x-X6H"/>
                                             <outlet property="viewTopLeft" destination="yqc-ad-UlQ" id="G3d-es-IV9"/>
                                             <outlet property="viewTopRight" destination="GA6-KU-5gK" id="1dT-J7-FaD"/>
+                                            <outletCollection property="gallery" destination="l7n-f2-IFe" collectionClass="NSMutableArray" id="rLU-ao-Brw"/>
+                                            <outletCollection property="gallery" destination="yI0-IH-ULd" collectionClass="NSMutableArray" id="Wni-Dv-DVE"/>
+                                            <outletCollection property="gallery" destination="MXD-RT-3mq" collectionClass="NSMutableArray" id="vNd-qF-Aap"/>
+                                            <outletCollection property="gallery" destination="frF-uH-Ti0" collectionClass="NSMutableArray" id="6j6-IZ-VdS"/>
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Mur-u6-jET" userLabel="ModelsStackView">
@@ -367,7 +371,7 @@
                         <outlet property="button3" destination="Bdo-m8-P1P" id="gSf-Ia-4mt"/>
                         <outlet property="gridView" destination="lxL-Dq-OVh" id="k93-Qw-v2b"/>
                         <outlet property="imageBottomLeft" destination="MXD-RT-3mq" id="dCm-ut-W8w"/>
-                        <outlet property="imageBottomRight" destination="MXD-RT-3mq" id="nAc-Pp-Mct"/>
+                        <outlet property="imageBottomRight" destination="frF-uH-Ti0" id="pND-Sp-mto"/>
                         <outlet property="imageTopLeft" destination="l7n-f2-IFe" id="Hs1-IQ-XmG"/>
                         <outlet property="imageTopRight" destination="yI0-IH-ULd" id="rO9-Ns-QxW"/>
                         <outlet property="logo" destination="RrQ-dV-B0j" id="8o3-i9-TJ0"/>

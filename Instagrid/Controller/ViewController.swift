@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var imagePicker = UIImagePickerController()
 
@@ -55,33 +55,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var selected3: UIImageView!
     
     
-    
-    @IBAction func topLeftButton(_ sender: Any) {
+    func pickImage (button : UIButton) {
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
-        topLeft.isHidden = true
+        button.isHidden = true
+    }
+    
+    @IBAction func topLeftButton(_ sender: Any) {
+        pickImage(button: topLeft)
     }
     
     @IBAction func topRightButton(_ sender: Any) {
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-        topRight.isHidden = true
+        pickImage(button: topRight)
     }
     
     @IBAction func bottomLeftButton(_ sender: Any) {
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-        bottomLeft.isHidden = true
+      pickImage(button: bottomLeft)
     }
     
     @IBAction func bottomRightButton(_ sender: Any) {
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-        bottomRight.isHidden = true
+        pickImage(button: bottomRight)
     }
     
    
@@ -104,24 +98,20 @@ class ViewController: UIViewController {
     @IBAction func ButtoModel3(_ sender: Any) {
         selected(style: .model3)
     }
-    
-}
-
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
             imageTopLeft.image = image
-        }
-        if let image2 = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imageTopRight.image = image2
-        }
-        if let image3 = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imageBottomLeft.image = image3
-        }
-        if let image4 = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imageBottomRight.image = image4
+            imageTopRight.image = image
+            imageBottomRight.image = image
+            imageBottomLeft.image = image
+            }
+         dismiss(animated: true, completion: nil)
         }
         
-        dismiss(animated: true, completion: nil)
+    
     }
-}
+    
+
+
+
+

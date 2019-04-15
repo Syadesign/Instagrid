@@ -17,12 +17,14 @@ class GridView: UIView {
     @IBOutlet var viewTopRight :UIView?
     @IBOutlet var viewBottomLeft :UIView?
     @IBOutlet var viewBottomRight :UIView?
+    
+    @IBOutlet var gallery : [UIImageView]!
   
     enum Style {
         case model1, model2, model3
     }
     
-
+    
     var style :Style = .model1 {
         didSet {
             setStyle(style)
@@ -48,3 +50,4 @@ class GridView: UIView {
         }
     }
 }
+
