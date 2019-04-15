@@ -47,5 +47,7 @@
 		<string>Delm-Medium.otf</string>
 		<string>VAGRoundedStd-Light.otf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app want to use your photos</string>
 </dict>
 </plist>
