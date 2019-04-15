@@ -56,31 +56,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var buttonNumber = 0
     
-    func pickImage (button : UIButton) {
+    func pickImage (button : UIButton, number:Int) {
+        buttonNumber = number
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
         button.isHidden = true
+        
     }
     
     @IBAction func topLeftButton(_ sender: Any) {
-        buttonNumber = 1
-        pickImage(button: topLeft)
+        pickImage(button: topLeft, number: 1)
     }
     
     @IBAction func topRightButton(_ sender: Any) {
-        buttonNumber = 2
-        pickImage(button: topRight)
+        pickImage(button: topRight, number: 2)
     }
     
     @IBAction func bottomLeftButton(_ sender: Any) {
-        buttonNumber = 3
-        pickImage(button: bottomLeft)
+        pickImage(button: bottomLeft, number: 3)
     }
     
     @IBAction func bottomRightButton(_ sender: Any) {
-        buttonNumber = 4
-        pickImage(button: bottomRight)
+        pickImage(button: bottomRight, number: 4)
     }
     
     
