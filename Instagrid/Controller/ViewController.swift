@@ -11,22 +11,22 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var imagePicker = UIImagePickerController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
-       
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     @IBOutlet weak var gridView: GridView!
     
     @IBOutlet weak var logo: UIImageView!
-
+    
     @IBOutlet weak var swipeIcon: UIImageView!
     
     @IBOutlet weak var swipeLabel: UILabel!
@@ -54,6 +54,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var selected2: UIImageView!
     @IBOutlet weak var selected3: UIImageView!
     
+    var buttonNumber = 0
     
     func pickImage (button : UIButton) {
         imagePicker.sourceType = .photoLibrary
@@ -63,23 +64,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func topLeftButton(_ sender: Any) {
+        buttonNumber = 1
         pickImage(button: topLeft)
     }
     
     @IBAction func topRightButton(_ sender: Any) {
+        buttonNumber = 2
         pickImage(button: topRight)
     }
     
     @IBAction func bottomLeftButton(_ sender: Any) {
-      pickImage(button: bottomLeft)
+        buttonNumber = 3
+        pickImage(button: bottomLeft)
     }
     
     @IBAction func bottomRightButton(_ sender: Any) {
+        buttonNumber = 4
         pickImage(button: bottomRight)
     }
     
-   
-
+    
+    
     func selected(style: GridView.Style) {
         gridView?.style = style
         selected1.isHidden = style != .model1
@@ -100,17 +105,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
-            imageTopLeft.image = image
-            imageTopRight.image = image
-            imageBottomRight.image = image
-            imageBottomLeft.image = image
+            if buttonNumber == 1 {
+                imageTopLeft.contentMode = .scaleAspectFill
+                imageTopLeft.image = image } else if buttonNumber == 2 {
+                imageTopRight.contentMode = .scaleAspectFill
+                imageTopRight.image = image} else if buttonNumber == 3 {
+                imageBottomLeft.contentMode = .scaleAspectFill
+                imageBottomLeft.image = image } else if buttonNumber == 4 {
+                imageBottomRight.contentMode = .scaleAspectFill
+                imageBottomRight.image = image
+            }
             }
          dismiss(animated: true, completion: nil)
         }
-        
     
     }
     
+    
+
+
 
 
 
