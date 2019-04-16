@@ -42,6 +42,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040C1EDD2265EF7B00C55198 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		04EEC8902253656100F9ACA1 = {
 			isa = PBXGroup;
 			children = (
@@ -62,19 +69,12 @@
 			isa = PBXGroup;
 			children = (
 				04EEC8A82253656300F9ACA1 /* Info.plist */,
-				04EEC8B422537B4000F9ACA1 /* Model */,
+				040C1EDD2265EF7B00C55198 /* Model */,
 				04EEC8B622537B8F00F9ACA1 /* Controller */,
 				04EEC8B522537B7000F9ACA1 /* View */,
 				04EEC8B722537BA900F9ACA1 /* SupportingFiles */,
 			);
 			path = Instagrid;
-			sourceTree = "<group>";
-		};
-		04EEC8B422537B4000F9ACA1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		04EEC8B522537B7000F9ACA1 /* View */ = {

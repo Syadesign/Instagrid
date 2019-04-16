@@ -28,21 +28,42 @@
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="RrQ-dV-B0j">
                                         <rect key="frame" x="126" y="40" width="123" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="sM3-pO-dE3"/>
+                                        </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-od-cto" userLabel="SwipeUpStackView">
-                                        <rect key="frame" x="107.5" y="131.5" width="160.5" height="48"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7A-mh-fSn" userLabel="swipeUpView">
+                                        <rect key="frame" x="110.5" y="132.5" width="154" height="47"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipeUp" translatesAutoresizingMaskIntoConstraints="NO" id="5BT-2V-3QA">
-                                                <rect key="frame" x="72.5" y="0.0" width="15" height="10"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aED-aP-CXT">
-                                                <rect key="frame" x="0.0" y="19" width="160.5" height="29"/>
-                                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-od-cto" userLabel="SwipeUpStackView">
+                                                <rect key="frame" x="0.0" y="0.0" width="154" height="47"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipeUp" translatesAutoresizingMaskIntoConstraints="NO" id="5BT-2V-3QA">
+                                                        <rect key="frame" x="69.5" y="0.0" width="15" height="10"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" id="oCy-mJ-VyE"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aED-aP-CXT">
+                                                        <rect key="frame" x="0.0" y="19" width="154" height="28"/>
+                                                        <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="25"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Jxf-od-cto" secondAttribute="bottom" id="4Oy-CC-C5q"/>
+                                            <constraint firstItem="Jxf-od-cto" firstAttribute="top" secondItem="j7A-mh-fSn" secondAttribute="top" id="eB3-RH-XGa"/>
+                                            <constraint firstItem="Jxf-od-cto" firstAttribute="leading" secondItem="j7A-mh-fSn" secondAttribute="leading" id="iac-wp-9Pn"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jxf-od-cto" secondAttribute="trailing" id="zOo-80-yuJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="a25-gS-SK7" appends="YES" id="ZHL-pY-5wN"/>
+                                        </connections>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxL-Dq-OVh" userLabel="GridView" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
                                         <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                         <subviews>
@@ -284,7 +305,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Selected2" translatesAutoresizingMaskIntoConstraints="NO" id="pwe-aE-Jbf">
-                                                        <rect key="frame" x="-0.5" y="0.0" width="80" height="80"/>
+                                                        <rect key="frame" x="-1" y="0.0" width="80" height="80"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                 </subviews>
@@ -307,7 +328,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Selected3" translatesAutoresizingMaskIntoConstraints="NO" id="bmd-BL-0tT">
-                                                        <rect key="frame" x="-0.5" y="0.0" width="80" height="80"/>
+                                                        <rect key="frame" x="-1" y="0.0" width="80" height="80"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                 </subviews>
@@ -340,14 +361,14 @@
                                 <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Mur-u6-jET" firstAttribute="centerX" secondItem="lxL-Dq-OVh" secondAttribute="centerX" id="563-2I-bzb"/>
+                                    <constraint firstItem="lxL-Dq-OVh" firstAttribute="top" secondItem="j7A-mh-fSn" secondAttribute="bottom" constant="4" id="AHd-SQ-DOP"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="CRz-B0-qc5"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="centerY" secondItem="FOV-uQ-3ht" secondAttribute="centerY" id="Dm6-a3-sBT"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="centerY" secondItem="FOV-uQ-3ht" secondAttribute="centerY" id="MKe-kh-zDk"/>
                                     <constraint firstAttribute="bottom" secondItem="Mur-u6-jET" secondAttribute="bottom" constant="42" id="O0l-Yw-6TQ"/>
-                                    <constraint firstItem="Jxf-od-cto" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="YRD-lv-2Tl"/>
+                                    <constraint firstItem="j7A-mh-fSn" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="dmd-WB-iU7"/>
                                     <constraint firstItem="RrQ-dV-B0j" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="gYp-Vn-Ddw"/>
                                     <constraint firstItem="RrQ-dV-B0j" firstAttribute="top" secondItem="FOV-uQ-3ht" secondAttribute="top" constant="40" id="h46-MU-pEM"/>
-                                    <constraint firstItem="lxL-Dq-OVh" firstAttribute="top" secondItem="Jxf-od-cto" secondAttribute="bottom" constant="4" id="pFQ-wg-RSX"/>
                                     <constraint firstItem="Mur-u6-jET" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="rfo-eo-niK"/>
                                 </constraints>
                             </view>
@@ -380,6 +401,7 @@
                         <outlet property="selected3" destination="bmd-BL-0tT" id="zBK-LP-3GA"/>
                         <outlet property="swipeIcon" destination="5BT-2V-3QA" id="fVW-Zc-dSp"/>
                         <outlet property="swipeLabel" destination="aED-aP-CXT" id="nx9-0C-8cX"/>
+                        <outlet property="swipeUpView" destination="j7A-mh-fSn" id="Tuq-PG-HR4"/>
                         <outlet property="topLeft" destination="Yzt-Jf-K1p" id="AE1-ht-yLu"/>
                         <outlet property="topRight" destination="cp6-n0-LxW" id="bjM-dP-fVI"/>
                         <outlet property="viewBottomLeft" destination="eSy-30-wG4" id="rwF-hj-XK0"/>
@@ -389,6 +411,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="a25-gS-SK7">
+                    <connections>
+                        <action selector="swipeUp:" destination="BYZ-38-t0r" id="bTO-GE-Vj1"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="132" y="133.5832083958021"/>
         </scene>

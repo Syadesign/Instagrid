@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -53,17 +54,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var selected1: UIImageView!
     @IBOutlet weak var selected2: UIImageView!
     @IBOutlet weak var selected3: UIImageView!
+    @IBOutlet weak var swipeUpView: UIView!
     
     var buttonNumber = 0
     
-    func pickImage (button : UIButton, number:Int) {
-        buttonNumber = number
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-        button.isHidden = true
+    func pickImage (button :UIButton, number :Int) {
+        PHPhotoLibrary.requestAuthorization({status in
+            if status == .authorized{
+                DispatchQueue.main.async {
+                    self.buttonNumber = number
+                    self.imagePicker.sourceType = .photoLibrary
+                    self.imagePicker.allowsEditing = true
+                    self.present(self.imagePicker, animated: true, completion: nil)
+                    button.isHidden = true
+                }
+            } else {
+                print ("Nous n'avons pas les authorisations recquises.")
+            }
+        })
         
     }
+    
     
     @IBAction func topLeftButton(_ sender: Any) {
         pickImage(button: topLeft, number: 1)
@@ -101,21 +112,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func ButtoModel3(_ sender: Any) {
         selected(style: .model3)
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
             if buttonNumber == 1 {
                 imageTopLeft.contentMode = .scaleAspectFill
-                imageTopLeft.image = image } else if buttonNumber == 2 {
+                imageTopLeft.image = image
+            } else if buttonNumber == 2 {
                 imageTopRight.contentMode = .scaleAspectFill
-                imageTopRight.image = image} else if buttonNumber == 3 {
+                imageTopRight.image = image
+            } else if buttonNumber == 3 {
                 imageBottomLeft.contentMode = .scaleAspectFill
-                imageBottomLeft.image = image } else if buttonNumber == 4 {
+                imageBottomLeft.image = image
+            } else if buttonNumber == 4 {
                 imageBottomRight.contentMode = .scaleAspectFill
                 imageBottomRight.image = image
             }
-            }
-         dismiss(animated: true, completion: nil)
         }
+         dismiss(animated: true, completion: nil)
+    }
+    
+   
+    @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
+        let direction = sender.direction
+        if direction == .up {
+            sharePicture()
+        }
+        
+    }
+    
+    func sharePicture () {
+        
+    }
     
     }
     
