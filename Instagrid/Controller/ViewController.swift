@@ -9,14 +9,35 @@
 import UIKit
 import Photos
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Make the 4 UIImageViews clikable in the grid to change the image
+        let tapImage1 = UITapGestureRecognizer(target: self, action: #selector(topLeftButton(_:)))
+        tapImage1.delegate = self
+        let tapImage2 = UITapGestureRecognizer(target: self, action: #selector(topRightButton(_:)))
+        tapImage2.delegate = self
+        let tapImage3 = UITapGestureRecognizer(target: self, action: #selector(bottomLeftButton(_:)))
+        tapImage3.delegate = self
+        let tapImage4 = UITapGestureRecognizer(target: self, action: #selector(bottomRightButton(_:)))
+        tapImage4.delegate = self
+        self.imageTopLeft.addGestureRecognizer(tapImage1)
+        self.imageTopLeft.isUserInteractionEnabled = true
+        self.imageTopRight.addGestureRecognizer(tapImage2)
+        self.imageTopRight.isUserInteractionEnabled = true
+        self.imageBottomLeft.addGestureRecognizer(tapImage3)
+        self.imageBottomLeft.isUserInteractionEnabled = true
+        self.imageBottomRight.addGestureRecognizer(tapImage4)
+        self.imageBottomRight.isUserInteractionEnabled = true
+        
+    }
+    
+    func  imageClikable() {
         
     }
     
@@ -59,8 +80,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var buttonNumber = 0
     
     
-    
-    func pickImage (button :UIButton, number :Int) {
+    /// Request authorization to access the user library and choose a picture
+    @objc func pickImage (button :UIButton, number :Int) {
         PHPhotoLibrary.requestAuthorization({status in
             if status == .authorized{
                 DispatchQueue.main.async {
@@ -77,6 +98,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    /// Display an alert if the access to the library is not authorized. The user can cancel the operation or go to is settings to authorize the access
     func alertAuthorization(){
         let alert = UIAlertController(title: "Accès bibliothèque", message: "Pour continuer, veuillez autoriser Instagrid à accéder à vos photos.", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -88,6 +110,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(alert, animated: true, completion: nil)
     }
     
+    /// access the application settings
     func accesSettings(){
         if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -132,6 +155,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         selected(style: .model3)
     }
     
+    /// add a picture from the user library
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
             if buttonNumber == 1 {
