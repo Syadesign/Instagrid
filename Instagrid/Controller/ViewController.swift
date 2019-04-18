@@ -58,6 +58,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var buttonNumber = 0
     
+    
+    
     func pickImage (button :UIButton, number :Int) {
         PHPhotoLibrary.requestAuthorization({status in
             if status == .authorized{
@@ -69,12 +71,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     button.isHidden = true
                 }
             } else {
-                print ("Nous n'avons pas les authorisations recquises.")
+                self.alertAuthorization()
             }
         })
         
     }
     
+    func alertAuthorization(){
+        let alert = UIAlertController(title: "Accès bibliothèque", message: "Pour continuer, veuillez autoriser Instagrid à accéder à vos photos.", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let action2 = UIAlertAction(title: "Réglages", style: .default) { (action2) in
+            self.accesSettings()
+        }
+        alert.addAction(action1)
+        alert.addAction(action2)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func accesSettings(){
+        if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+    }
     
     @IBAction func topLeftButton(_ sender: Any) {
         pickImage(button: topLeft, number: 1)
