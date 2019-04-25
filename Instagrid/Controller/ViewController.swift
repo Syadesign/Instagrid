@@ -13,6 +13,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var imagePicker = UIImagePickerController()
     
+    let screenHeigh = UIScreen.main.bounds.height
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
@@ -175,27 +177,54 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismiss(animated: true, completion: nil)
     }
     
+    func checkCompleteGrid() {
+        switch gridView.style {
+        case .model1:
+            if imageTopRight.image == nil ||  imageBottomLeft.image == nil ||  imageBottomRight.image == nil {
+                self.alerteIncompleteGrid()
+            }
+        case .model2:
+            if imageTopLeft.image == nil ||  imageTopRight.image == nil ||   imageBottomRight.image == nil {
+                self.alerteIncompleteGrid()
+            }
+        case .model3:
+            if imageTopLeft.image == nil ||  imageTopRight.image == nil ||  imageBottomLeft.image == nil ||  imageBottomRight.image == nil {
+                self.alerteIncompleteGrid()
+            }
+        }
+    }
+    
+    func alerteIncompleteGrid(){
+        let alert = UIAlertController(title: "Grille incomplète", message: "Pour continuer, veuillez compléter la grille.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-        let screenHeigh = UIScreen.main.bounds.height
-        let transform = CGAffineTransform(translationX: 0, y: screenHeigh)
-        UIView.animate(withDuration: 0.3, animations: {
-            self.gridView.transform = transform
-            let direction = sender.direction
-            if direction == .up {
-                self.sharePicture()
-            }
-        }) { (true) in
-            self.gridView.transform = .identity
-        }
+        self.checkCompleteGrid()
+        let direction = sender.direction
+        if direction == .up {
+        self.sharePicture()
+    }
+         self.gridView.transform = .identity
+
     }
     
     
     func sharePicture() {
         let image = convertView(view: gridView)
+        
+        let transform = CGAffineTransform(translationX: 0, y: self.screenHeigh)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.gridView.transform = transform
+            
+        })
         let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
-        present (activityController, animated: true, completion: nil)
+        present(activityController, animated: true, completion: nil)
+      
     }
+    
     
     func convertView(view: GridView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
@@ -203,6 +232,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imgConverted = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return imgConverted
+    }
+    
+    @IBAction func whiteBackground(_ sender: Any) {
+        self.gridView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
+    @IBAction func blueBackground(_ sender: Any) {
+        self.gridView.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+    }
+    
+    @IBAction func blackBackground(_ sender: Any) {
+        self.gridView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
 }
