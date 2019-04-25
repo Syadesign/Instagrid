@@ -411,7 +411,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="a25-gS-SK7">
+                <swipeGestureRecognizer direction="up" id="a25-gS-SK7">
                     <connections>
                         <action selector="swipeUp:" destination="BYZ-38-t0r" id="bTO-GE-Vj1"/>
                     </connections>

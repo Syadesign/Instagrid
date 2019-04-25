@@ -98,7 +98,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    /// Display an alert if the access to the library is not authorized. The user can cancel the operation or go to is settings to authorize the access
+    /// Display an alert if the access to the library is not authorized. The user can cancel the operation or go to his settings to authorize the access
     func alertAuthorization(){
         let alert = UIAlertController(title: "Accès bibliothèque", message: "Pour continuer, veuillez autoriser Instagrid à accéder à vos photos.", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -172,25 +172,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 imageBottomRight.image = image
             }
         }
-         dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-   
+    
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-        let direction = sender.direction
-        if direction == .up {
-            sharePicture()
+        let screenHeigh = UIScreen.main.bounds.height
+        let transform = CGAffineTransform(translationX: 0, y: screenHeigh)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.gridView.transform = transform
+            let direction = sender.direction
+            if direction == .up {
+                self.sharePicture()
+            }
+        }) { (true) in
+            self.gridView.transform = .identity
         }
-        
-    }
-    
-    func sharePicture () {
-        
-    }
-    
     }
     
     
+    func sharePicture() {
+        let image = convertView(view: gridView)
+        let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        present (activityController, animated: true, completion: nil)
+    }
+    
+    func convertView(view: GridView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let imgConverted = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return imgConverted
+    }
+    
+}
+
+
 
 
 
