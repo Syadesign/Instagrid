@@ -39,9 +39,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    func  imageClikable() {
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -202,9 +199,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-        self.checkCompleteGrid()
+        
         let direction = sender.direction
-        if direction == .up {
+        if direction == .up || direction == .left {
+        self.checkCompleteGrid()
         self.sharePicture()
     }
          self.gridView.transform = .identity
