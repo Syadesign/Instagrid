@@ -281,8 +281,19 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="2R3-IK-0n0"/>
                                                     <constraint firstAttribute="width" constant="20" id="YUQ-p3-l8T"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="2R3-IK-0n0"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="2R3-IK-0n0"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <action selector="whiteBackground:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kXc-IQ-yPt"/>
                                                 </connections>
@@ -291,8 +302,19 @@
                                                 <rect key="frame" x="38" y="0.0" width="20" height="20"/>
                                                 <color key="backgroundColor" red="0.062745098040000002" green="0.40000000000000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="hqL-nR-aI5"/>
                                                     <constraint firstAttribute="width" constant="20" id="x5c-qI-vOp"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="hqL-nR-aI5"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="hqL-nR-aI5"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <action selector="blueBackground:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1gO-tB-56z"/>
                                                 </connections>
@@ -301,8 +323,19 @@
                                                 <rect key="frame" x="76" y="0.0" width="20" height="20"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="6rv-ua-Rtw"/>
                                                     <constraint firstAttribute="width" constant="20" id="VUQ-bz-cOP"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="6rv-ua-Rtw"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="6rv-ua-Rtw"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <action selector="blackBackground:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yH4-dl-MKc"/>
                                                 </connections>
@@ -311,6 +344,11 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="IFY-PZ-fHP"/>
                                         </constraints>
+                                        <variation key="heightClass=compact" axis="vertical">
+                                            <mask key="constraints">
+                                                <exclude reference="IFY-PZ-fHP"/>
+                                            </mask>
+                                        </variation>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7A-mh-fSn" userLabel="swipeUpView">
                                         <rect key="frame" x="110.5" y="132.5" width="154" height="47"/>
@@ -579,11 +617,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Mur-u6-jET" firstAttribute="leading" secondItem="nnw-lI-xad" secondAttribute="trailing" constant="10" id="182-kj-c0s"/>
                                     <constraint firstItem="nnw-lI-xad" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="2et-Wr-NsL"/>
                                     <constraint firstItem="Mur-u6-jET" firstAttribute="centerX" secondItem="lxL-Dq-OVh" secondAttribute="centerX" id="563-2I-bzb"/>
                                     <constraint firstItem="Mur-u6-jET" firstAttribute="centerY" secondItem="FOV-uQ-3ht" secondAttribute="centerY" id="6M0-jQ-E1I"/>
                                     <constraint firstItem="j7A-mh-fSn" firstAttribute="leading" secondItem="FOV-uQ-3ht" secondAttribute="leading" constant="21" id="9Ct-XD-Ohr"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="top" secondItem="j7A-mh-fSn" secondAttribute="bottom" constant="4" id="AHd-SQ-DOP"/>
+                                    <constraint firstItem="nnw-lI-xad" firstAttribute="centerY" secondItem="FOV-uQ-3ht" secondAttribute="centerY" id="CIC-yv-Kre"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="CRz-B0-qc5"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="centerY" secondItem="FOV-uQ-3ht" secondAttribute="centerY" id="Dm6-a3-sBT"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="centerY" secondItem="FOV-uQ-3ht" secondAttribute="centerY" id="MKe-kh-zDk"/>
@@ -602,6 +642,8 @@
                                         <exclude reference="9Ct-XD-Ohr"/>
                                         <exclude reference="iTg-GK-84u"/>
                                         <exclude reference="Sdg-fl-6xU"/>
+                                        <exclude reference="CIC-yv-Kre"/>
+                                        <exclude reference="182-kj-c0s"/>
                                         <exclude reference="6M0-jQ-E1I"/>
                                         <exclude reference="d7s-Xn-8yA"/>
                                     </mask>
@@ -614,7 +656,10 @@
                                         <exclude reference="AHd-SQ-DOP"/>
                                         <include reference="Sdg-fl-6xU"/>
                                         <exclude reference="h46-MU-pEM"/>
+                                        <exclude reference="2et-Wr-NsL"/>
+                                        <include reference="CIC-yv-Kre"/>
                                         <exclude reference="tvD-It-zKk"/>
+                                        <include reference="182-kj-c0s"/>
                                         <exclude reference="563-2I-bzb"/>
                                         <include reference="6M0-jQ-E1I"/>
                                         <exclude reference="O0l-Yw-6TQ"/>
