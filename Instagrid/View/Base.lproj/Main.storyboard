@@ -48,22 +48,22 @@
                                         </variation>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxL-Dq-OVh" userLabel="GridView" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="183.5" y="37.5" width="300" height="300"/>
+                                        <rect key="frame" x="203.5" y="57.5" width="260" height="260"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="M6M-9n-Um7" userLabel="gridStackView">
-                                                <rect key="frame" x="15" y="15" width="270" height="270"/>
+                                                <rect key="frame" x="15" y="15" width="230" height="230"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qbC-t2-p1D" userLabel="topStackView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="270" height="127"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="107"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-ad-UlQ" userLabel="viewTopLeft">
-                                                                <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l7n-f2-IFe">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzt-Jf-K1p" userLabel="topLeftButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
                                                                         <state key="normal" title="+">
@@ -88,13 +88,13 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GA6-KU-5gK" userLabel="viewTopRight">
-                                                                <rect key="frame" x="143" y="0.0" width="127" height="127"/>
+                                                                <rect key="frame" x="123" y="0.0" width="107" height="107"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yI0-IH-ULd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cp6-n0-LxW" userLabel="topRightButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
                                                                         <state key="normal" title="+">
@@ -134,18 +134,24 @@
                                                             <constraint firstItem="GA6-KU-5gK" firstAttribute="top" secondItem="qbC-t2-p1D" secondAttribute="top" id="ruG-Jm-drb"/>
                                                             <constraint firstAttribute="bottom" secondItem="yqc-ad-UlQ" secondAttribute="bottom" id="xUf-zc-uOo"/>
                                                         </constraints>
+                                                        <variation key="heightClass=compact">
+                                                            <mask key="constraints">
+                                                                <exclude reference="GFo-3F-vuq"/>
+                                                                <exclude reference="Ibe-8W-f7Y"/>
+                                                            </mask>
+                                                        </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZuX-WG-gTP" userLabel="bottomStackView">
-                                                        <rect key="frame" x="0.0" y="143" width="270" height="127"/>
+                                                        <rect key="frame" x="0.0" y="123" width="230" height="107"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-30-wG4" userLabel="viewBottomLeft">
-                                                                <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MXD-RT-3mq">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anM-PU-bKr" userLabel="bottomLeftButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
                                                                         <state key="normal" title="+">
@@ -169,13 +175,13 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qrl-Pn-p9o" userLabel="viewBottomRight">
-                                                                <rect key="frame" x="143" y="0.0" width="127" height="127"/>
+                                                                <rect key="frame" x="123" y="0.0" width="107" height="107"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="frF-uH-Ti0">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrv-dj-8UT" userLabel="bottomRightButton">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="127"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="85"/>
                                                                         <state key="normal" title="+">
@@ -215,6 +221,12 @@
                                                             <constraint firstAttribute="bottom" secondItem="eSy-30-wG4" secondAttribute="bottom" id="v5b-91-dZY"/>
                                                             <constraint firstItem="eSy-30-wG4" firstAttribute="top" secondItem="ZuX-WG-gTP" secondAttribute="top" id="yRb-XU-jGv"/>
                                                         </constraints>
+                                                        <variation key="heightClass=compact">
+                                                            <mask key="constraints">
+                                                                <exclude reference="30K-cD-MDS"/>
+                                                                <exclude reference="b6c-am-biY"/>
+                                                            </mask>
+                                                        </variation>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -226,14 +238,28 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lxL-Dq-OVh" secondAttribute="height" multiplier="1:1" id="2fo-jt-gSg"/>
                                             <constraint firstItem="M6M-9n-Um7" firstAttribute="top" secondItem="lxL-Dq-OVh" secondAttribute="top" constant="15" id="8TS-2e-QYQ"/>
+                                            <constraint firstAttribute="width" constant="260" id="AU6-p6-Iys"/>
                                             <constraint firstAttribute="bottom" secondItem="M6M-9n-Um7" secondAttribute="bottom" constant="15" id="BiN-jg-ywn"/>
                                             <constraint firstItem="M6M-9n-Um7" firstAttribute="centerX" secondItem="lxL-Dq-OVh" secondAttribute="centerX" id="SJO-ob-Mfv"/>
+                                            <constraint firstAttribute="height" constant="260" id="ZrT-b5-F0b"/>
                                             <constraint firstItem="M6M-9n-Um7" firstAttribute="centerY" secondItem="lxL-Dq-OVh" secondAttribute="centerY" id="bIL-6o-bou"/>
                                             <constraint firstItem="M6M-9n-Um7" firstAttribute="centerX" secondItem="lxL-Dq-OVh" secondAttribute="centerX" id="d4T-Wr-QSu"/>
                                             <constraint firstItem="M6M-9n-Um7" firstAttribute="centerY" secondItem="lxL-Dq-OVh" secondAttribute="centerY" id="hNZ-Eb-aLy"/>
                                             <constraint firstItem="M6M-9n-Um7" firstAttribute="leading" secondItem="lxL-Dq-OVh" secondAttribute="leading" constant="15" id="n9A-vK-hKW"/>
                                             <constraint firstAttribute="trailing" secondItem="M6M-9n-Um7" secondAttribute="trailing" constant="15" id="sjs-L4-77f"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="AU6-p6-Iys"/>
+                                                <exclude reference="ZrT-b5-F0b"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="AU6-p6-Iys"/>
+                                                <include reference="ZrT-b5-F0b"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="bottomStackView" destination="ZuX-WG-gTP" id="chd-BB-sfY"/>
                                             <outlet property="gridStackView" destination="M6M-9n-Um7" id="KAn-yr-lLC"/>
@@ -340,8 +366,8 @@
                                             <constraint firstAttribute="bottom" secondItem="lM8-UJ-e4r" secondAttribute="bottom" id="ocM-4R-mN1"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="nnw-lI-xad" userLabel="backGroundStackView">
-                                        <rect key="frame" x="285.5" y="345.5" width="96" height="20"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="nnw-lI-xad" userLabel="backGroundStackView">
+                                        <rect key="frame" x="285.5" y="491.5" width="96" height="20"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWJ-hi-XvL">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -444,6 +470,8 @@
                                         <exclude reference="AHd-SQ-DOP"/>
                                         <include reference="Sdg-fl-6xU"/>
                                         <exclude reference="h46-MU-pEM"/>
+                                        <exclude reference="563-2I-bzb"/>
+                                        <exclude reference="tvD-It-zKk"/>
                                     </mask>
                                 </variation>
                             </view>
