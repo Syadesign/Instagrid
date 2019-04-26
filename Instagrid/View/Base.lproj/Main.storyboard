@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,52 +20,35 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOV-uQ-3ht">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="RrQ-dV-B0j">
-                                        <rect key="frame" x="126" y="40" width="123" height="35"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="RrQ-dV-B0j">
+                                        <rect key="frame" x="295" y="9" width="77" height="22"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="cDz-j9-0Cg"/>
+                                            <constraint firstAttribute="width" secondItem="RrQ-dV-B0j" secondAttribute="height" multiplier="123:35" id="oqN-FS-fT6"/>
                                             <constraint firstAttribute="height" constant="35" id="sM3-pO-dE3"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="cDz-j9-0Cg"/>
+                                                <exclude reference="oqN-FS-fT6"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="cDz-j9-0Cg"/>
+                                                <include reference="oqN-FS-fT6"/>
+                                                <exclude reference="sM3-pO-dE3"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7A-mh-fSn" userLabel="swipeUpView">
-                                        <rect key="frame" x="110.5" y="132.5" width="154" height="47"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-od-cto" userLabel="SwipeUpStackView">
-                                                <rect key="frame" x="0.0" y="0.0" width="154" height="47"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipeUp" translatesAutoresizingMaskIntoConstraints="NO" id="5BT-2V-3QA">
-                                                        <rect key="frame" x="69.5" y="0.0" width="15" height="10"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="10" id="oCy-mJ-VyE"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aED-aP-CXT">
-                                                        <rect key="frame" x="0.0" y="19" width="154" height="28"/>
-                                                        <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="25"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Jxf-od-cto" secondAttribute="bottom" id="4Oy-CC-C5q"/>
-                                            <constraint firstItem="Jxf-od-cto" firstAttribute="top" secondItem="j7A-mh-fSn" secondAttribute="top" id="eB3-RH-XGa"/>
-                                            <constraint firstItem="Jxf-od-cto" firstAttribute="leading" secondItem="j7A-mh-fSn" secondAttribute="leading" id="iac-wp-9Pn"/>
-                                            <constraint firstAttribute="trailing" secondItem="Jxf-od-cto" secondAttribute="trailing" id="zOo-80-yuJ"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="a25-gS-SK7" appends="YES" id="ZHL-pY-5wN"/>
-                                        </connections>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxL-Dq-OVh" userLabel="GridView" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                        <rect key="frame" x="183.5" y="37.5" width="300" height="300"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="M6M-9n-Um7" userLabel="gridStackView">
                                                 <rect key="frame" x="15" y="15" width="270" height="270"/>
@@ -266,7 +249,7 @@
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Mur-u6-jET" userLabel="ModelsStackView">
-                                        <rect key="frame" x="42.5" y="567" width="290" height="80"/>
+                                        <rect key="frame" x="188.5" y="275" width="290" height="80"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lM8-UJ-e4r">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -358,7 +341,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="nnw-lI-xad" userLabel="backGroundStackView">
-                                        <rect key="frame" x="139.5" y="491.5" width="96" height="20"/>
+                                        <rect key="frame" x="285.5" y="345.5" width="96" height="20"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWJ-hi-XvL">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -395,22 +378,74 @@
                                             <constraint firstAttribute="height" constant="20" id="IFY-PZ-fHP"/>
                                         </constraints>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7A-mh-fSn" userLabel="swipeUpView">
+                                        <rect key="frame" x="21" y="164" width="154" height="47"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-od-cto" userLabel="SwipeUpStackView">
+                                                <rect key="frame" x="0.0" y="0.0" width="154" height="47"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipeUp" translatesAutoresizingMaskIntoConstraints="NO" id="5BT-2V-3QA">
+                                                        <rect key="frame" x="69.5" y="0.0" width="15" height="10"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" id="oCy-mJ-VyE"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aED-aP-CXT">
+                                                        <rect key="frame" x="0.0" y="19" width="154" height="28"/>
+                                                        <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="25"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Jxf-od-cto" secondAttribute="bottom" id="4Oy-CC-C5q"/>
+                                            <constraint firstItem="Jxf-od-cto" firstAttribute="top" secondItem="j7A-mh-fSn" secondAttribute="top" id="eB3-RH-XGa"/>
+                                            <constraint firstItem="Jxf-od-cto" firstAttribute="leading" secondItem="j7A-mh-fSn" secondAttribute="leading" id="iac-wp-9Pn"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jxf-od-cto" secondAttribute="trailing" id="zOo-80-yuJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="a25-gS-SK7" appends="YES" id="ZHL-pY-5wN"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="nnw-lI-xad" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="2et-Wr-NsL"/>
                                     <constraint firstItem="Mur-u6-jET" firstAttribute="centerX" secondItem="lxL-Dq-OVh" secondAttribute="centerX" id="563-2I-bzb"/>
+                                    <constraint firstItem="j7A-mh-fSn" firstAttribute="leading" secondItem="FOV-uQ-3ht" secondAttribute="leading" constant="21" id="9Ct-XD-Ohr"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="top" secondItem="j7A-mh-fSn" secondAttribute="bottom" constant="4" id="AHd-SQ-DOP"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="CRz-B0-qc5"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="centerY" secondItem="FOV-uQ-3ht" secondAttribute="centerY" id="Dm6-a3-sBT"/>
                                     <constraint firstItem="lxL-Dq-OVh" firstAttribute="centerY" secondItem="FOV-uQ-3ht" secondAttribute="centerY" id="MKe-kh-zDk"/>
                                     <constraint firstAttribute="bottom" secondItem="Mur-u6-jET" secondAttribute="bottom" constant="20" id="O0l-Yw-6TQ"/>
+                                    <constraint firstItem="RrQ-dV-B0j" firstAttribute="top" secondItem="FOV-uQ-3ht" secondAttribute="top" constant="9" id="Sdg-fl-6xU"/>
                                     <constraint firstItem="j7A-mh-fSn" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="dmd-WB-iU7"/>
                                     <constraint firstItem="RrQ-dV-B0j" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="gYp-Vn-Ddw"/>
                                     <constraint firstItem="RrQ-dV-B0j" firstAttribute="top" secondItem="FOV-uQ-3ht" secondAttribute="top" constant="40" id="h46-MU-pEM"/>
+                                    <constraint firstItem="j7A-mh-fSn" firstAttribute="centerY" secondItem="FOV-uQ-3ht" secondAttribute="centerY" id="iTg-GK-84u"/>
                                     <constraint firstItem="Mur-u6-jET" firstAttribute="centerX" secondItem="FOV-uQ-3ht" secondAttribute="centerX" id="rfo-eo-niK"/>
                                     <constraint firstItem="nnw-lI-xad" firstAttribute="top" secondItem="lxL-Dq-OVh" secondAttribute="bottom" constant="8" id="tvD-It-zKk"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9Ct-XD-Ohr"/>
+                                        <exclude reference="iTg-GK-84u"/>
+                                        <exclude reference="Sdg-fl-6xU"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9Ct-XD-Ohr"/>
+                                        <exclude reference="dmd-WB-iU7"/>
+                                        <include reference="iTg-GK-84u"/>
+                                        <exclude reference="AHd-SQ-DOP"/>
+                                        <include reference="Sdg-fl-6xU"/>
+                                        <exclude reference="h46-MU-pEM"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
