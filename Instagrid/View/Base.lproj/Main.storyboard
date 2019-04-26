@@ -70,7 +70,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="M6M-9n-Um7" userLabel="gridStackView">
                                                 <rect key="frame" x="15" y="15" width="270" height="270"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qbC-t2-p1D" userLabel="topStackView">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qbC-t2-p1D" userLabel="topStackView">
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="127"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-ad-UlQ" userLabel="viewTopLeft">
@@ -152,7 +152,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="yqc-ad-UlQ" secondAttribute="bottom" id="xUf-zc-uOo"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZuX-WG-gTP" userLabel="bottomStackView">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZuX-WG-gTP" userLabel="bottomStackView">
                                                         <rect key="frame" x="0.0" y="143" width="270" height="127"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-30-wG4" userLabel="viewBottomLeft">

@@ -159,15 +159,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
             if buttonNumber == 1 {
                 imageTopLeft.contentMode = .scaleAspectFill
+                imageTopLeft.clipsToBounds = true
                 imageTopLeft.image = image
             } else if buttonNumber == 2 {
                 imageTopRight.contentMode = .scaleAspectFill
+                imageTopRight.clipsToBounds = true
                 imageTopRight.image = image
             } else if buttonNumber == 3 {
                 imageBottomLeft.contentMode = .scaleAspectFill
+                imageBottomLeft.clipsToBounds = true
                 imageBottomLeft.image = image
             } else if buttonNumber == 4 {
                 imageBottomRight.contentMode = .scaleAspectFill
+                imageBottomRight.clipsToBounds = true
                 imageBottomRight.image = image
             }
         }
