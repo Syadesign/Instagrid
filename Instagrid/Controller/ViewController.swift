@@ -39,6 +39,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    func rotationHasChange() {
+        if UIDevice.current.orientation.isLandscape {
+            self.swipeLabel.text = "Swipe left to share"
+        }else{
+            self.swipeLabel.text = "Swipe up to share"
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -204,28 +211,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-        
-        let direction = sender.direction
-        if direction == .up || direction == .left {
         self.checkCompleteGrid()
         self.sharePicture()
     }
-         self.gridView.transform = .identity
-
-    }
     
+    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
+        self.checkCompleteGrid()
+        self.sharePicture()
+    }
     
     func sharePicture() {
         let image = convertView(view: gridView)
         
-        let transform = CGAffineTransform(translationX: 0, y: self.screenHeigh)
         UIView.animate(withDuration: 0.3, animations: {
-            self.gridView.transform = transform
+            self.gridView.frame.origin.y = -self.gridView.frame.height
             
         })
         let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        activityController.completionWithItemsHandler = { activity, success, items, error in
+            UIView.animate(withDuration: 0.3, animations: {
+                self.gridView.center.y = self.view.center.y
+            })
+        }
         present(activityController, animated: true, completion: nil)
-      
     }
     
     

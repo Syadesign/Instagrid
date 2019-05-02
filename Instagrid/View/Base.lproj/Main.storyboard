@@ -393,6 +393,7 @@
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="a25-gS-SK7" appends="YES" id="ZHL-pY-5wN"/>
+                                            <outletCollection property="gestureRecognizers" destination="8t7-xZ-LF1" appends="YES" id="E6p-TA-yCp"/>
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Mur-u6-jET" userLabel="ModelsStackView">
@@ -660,9 +661,9 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="Sdg-fl-6xU"/>
                                         <exclude reference="9Ct-XD-Ohr"/>
                                         <exclude reference="iTg-GK-84u"/>
+                                        <exclude reference="Sdg-fl-6xU"/>
                                         <exclude reference="CIC-yv-Kre"/>
                                         <exclude reference="182-kj-c0s"/>
                                         <exclude reference="6M0-jQ-E1I"/>
@@ -671,12 +672,12 @@
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
-                                        <include reference="Sdg-fl-6xU"/>
-                                        <exclude reference="h46-MU-pEM"/>
                                         <include reference="9Ct-XD-Ohr"/>
                                         <exclude reference="dmd-WB-iU7"/>
                                         <include reference="iTg-GK-84u"/>
                                         <exclude reference="AHd-SQ-DOP"/>
+                                        <include reference="Sdg-fl-6xU"/>
+                                        <exclude reference="h46-MU-pEM"/>
                                         <exclude reference="2et-Wr-NsL"/>
                                         <include reference="CIC-yv-Kre"/>
                                         <exclude reference="tvD-It-zKk"/>
@@ -732,6 +733,11 @@
                 <swipeGestureRecognizer direction="up" id="a25-gS-SK7">
                     <connections>
                         <action selector="swipeUp:" destination="BYZ-38-t0r" id="bTO-GE-Vj1"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="8t7-xZ-LF1">
+                    <connections>
+                        <action selector="swipeLeft:" destination="BYZ-38-t0r" id="s0h-6a-pEH"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
