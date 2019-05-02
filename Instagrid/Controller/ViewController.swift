@@ -50,6 +50,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var swipeIcon: UIImageView!
     
+    @IBOutlet weak var swipeUpIcon: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!
     
     @IBOutlet var viewTopLeft :UIView?
