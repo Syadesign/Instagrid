@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var imagePicker = UIImagePickerController()
     
     let screenHeigh = UIScreen.main.bounds.height
+    let screenWidth = UIScreen.main.bounds.maxX
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -212,26 +213,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
         self.checkCompleteGrid()
-        self.sharePicture()
+        self.sharePicture(isLeft: false)
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
         self.checkCompleteGrid()
-        self.sharePicture()
+        self.sharePicture(isLeft: true)
     }
     
-    func sharePicture() {
+    func sharePicture(isLeft: Bool) {
         let image = convertView(view: gridView)
         
-        UIView.animate(withDuration: 0.3, animations: {
-            self.gridView.frame.origin.y = -self.gridView.frame.height
+        if isLeft {
+            let transform = CGAffineTransform(translationX: -screenHeigh, y: 0)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.gridView.transform = transform
+            })
             
-        })
+        }else {
+            let transform = CGAffineTransform(translationX: 0, y: -screenHeigh)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.gridView.transform = transform
+            })
+        }
+       
         let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, success, items, error in
-            UIView.animate(withDuration: 0.3, animations: {
-                self.gridView.center.y = self.view.center.y
-            })
+          self.gridView.transform = .identity
         }
         present(activityController, animated: true, completion: nil)
     }
