@@ -38,13 +38,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageBottomRight.addGestureRecognizer(tapImage4)
         self.imageBottomRight.isUserInteractionEnabled = true
         
+        ///Observe the device's rotation
+        let didRotate: (Notification) -> Void = { notification in
+            switch UIDevice.current.orientation {
+            case .landscapeLeft, .landscapeRight:
+                self.swipeLabel.text = "Swipe left to share"
+                self.swipeUpIcon.image = #imageLiteral(resourceName: "swipeLeft")
+            case .portrait:
+                self.swipeLabel.text = "Swipe up to share"
+                self.swipeUpIcon.image = #imageLiteral(resourceName: "swipeUp")
+            default:
+                print("error")
+            }
+        }
+        NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main, using: didRotate)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+        
     }
     
-    func rotationHasChange() {
+    @objc func rotationHasChange() {
         if UIDevice.current.orientation.isLandscape {
             self.swipeLabel.text = "Swipe left to share"
+            self.swipeUpIcon.image = #imageLiteral(resourceName: "swipeLeft")
         }else{
             self.swipeLabel.text = "Swipe up to share"
+            self.swipeUpIcon.image = #imageLiteral(resourceName: "swipeUp")
         }
     }
     
