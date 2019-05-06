@@ -19,7 +19,8 @@ class GridView: UIView {
     @IBOutlet var viewBottomRight :UIView?
     
     @IBOutlet var gallery : [UIImageView]!
-  
+    
+    // enum for the 3 grid models
     enum Style {
         case model1, model2, model3
     }
@@ -31,6 +32,7 @@ class GridView: UIView {
         }
     }
     
+    /// Create variables to set the model style and hide the corresponding view
     func model(topLeft: Bool, topRight: Bool, bottomLeft: Bool, bottomRight: Bool ) {
         viewTopLeft?.isHidden = topLeft
         viewTopRight?.isHidden = topRight
@@ -38,7 +40,7 @@ class GridView: UIView {
         viewBottomRight?.isHidden = bottomRight
     }
     
- 
+    /// Create the 3 grid models by hiding the corresponding view from the stackView
     func setStyle(_ style: Style) {
         switch style {
         case .model1:

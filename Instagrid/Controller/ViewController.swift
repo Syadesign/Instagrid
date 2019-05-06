@@ -38,7 +38,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageBottomRight.addGestureRecognizer(tapImage4)
         self.imageBottomRight.isUserInteractionEnabled = true
         
-        ///Observe the device's rotation
+        //Observe the device's rotation
         let didRotate: (Notification) -> Void = { notification in
             switch UIDevice.current.orientation {
             case .landscapeLeft, .landscapeRight:
@@ -54,9 +54,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main, using: didRotate)
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         
+        // Apply shadow on the gridView
         applyShadowOnView(gridView)
     }
     
+    /// Apply a shadow on a UIView.
     func applyShadowOnView(_ view:UIView) {
         
         view.layer.cornerRadius = 6
@@ -75,11 +77,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var logo: UIImageView!
     
-    
+    // All the component of the swipeView
     @IBOutlet weak var swipeUpIcon: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!
+    @IBOutlet weak var swipeUpView: UIView!
     
-    
+    // All the component of the gridView
     @IBOutlet var viewTopLeft :UIView?
     @IBOutlet var viewTopRight :UIView?
     @IBOutlet var viewBottomLeft :UIView?
@@ -93,7 +96,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topRight: UIButton!
     @IBOutlet weak var topLeft: UIButton!
     
-    
+    // All the component of the modelView
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -101,12 +104,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var selected2: UIImageView!
     @IBOutlet weak var selected3: UIImageView!
     
-    @IBOutlet weak var swipeUpView: UIView!
     
+    
+    // Use this variable to assign a number to each button of the grid View. I use it for the imagePickerController.
     var buttonNumber = 0
     
     
-    /// Request authorization to access the user library and choose a picture
+    /// Request authorization to access the user library and choose a picture.
     @objc func pickImage (button :UIButton, number :Int) {
         PHPhotoLibrary.requestAuthorization({status in
             if status == .authorized{
@@ -124,7 +128,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    /// Display an alert if the access to the library is not authorized. The user can cancel the operation or go to his settings to authorize the access
+    /// Display an alert if the access to the library is not authorized. The user can cancel the operation or go to his settings to authorize the access.
     func alertAuthorization(){
         let alert = UIAlertController(title: "Accès bibliothèque", message: "Pour continuer, veuillez autoriser Instagrid à accéder à vos photos.", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -136,7 +140,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(alert, animated: true, completion: nil)
     }
     
-    /// access the application settings
+    /// Access the application settings.
     func accesSettings(){
         if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -144,6 +148,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    /// 4 buttons in the grid view to pick an image in the library
     @IBAction func topLeftButton(_ sender: Any) {
         pickImage(button: topLeft, number: 1)
     }
@@ -161,7 +166,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    
+    /// Display the selected image when the model is selected.
     func selected(style: GridView.Style) {
         gridView?.style = style
         selected1.isHidden = style != .model1
@@ -169,6 +174,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         selected3.isHidden = style != .model3
     }
     
+    /// 3 buttons on the bottom for the portrait and on the right for the landscape to chose the grid model.
     @IBAction func ButtonModel1(_ sender: Any) {
         selected(style: .model1)
     }
@@ -181,7 +187,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         selected(style: .model3)
     }
     
-    /// add a picture from the user library
+    /// Add a picture from the user library
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
             if buttonNumber == 1 {
@@ -205,6 +211,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismiss(animated: true, completion: nil)
     }
     
+    /// Check if the grid is complete before sharing
     func checkCompleteGrid() {
         switch gridView.style {
         case .model1:
@@ -222,6 +229,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    /// Display an alert if the grid isn't complete.
     func alerteIncompleteGrid(){
         let alert = UIAlertController(title: "Grille incomplète", message: "Pour continuer, veuillez compléter la grille.", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
@@ -240,6 +248,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.sharePicture(isLeft: true)
     }
     
+    /// Transform the UIView in UIimage (convertView()), then check if the grid is complete, the grid view disappear with an animation and the UIActivityController appear.
     func sharePicture(isLeft: Bool) {
         let image = convertView(view: gridView)
         self.checkCompleteGrid()
@@ -254,6 +263,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             })
         }
         
+        // Open the sharing menu
         let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, success, items, error in
             UIView.animate(withDuration: 0.3, animations: {
@@ -264,7 +274,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(activityController, animated: true, completion: nil)
     }
     
-    
+    /// Convert a UIView to a UIImage for share it
     func convertView(view: GridView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
@@ -272,6 +282,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         return imgConverted
     }
+    
+    /// 3 buttons to change the background color of the gridView
     
     @IBAction func whiteBackground(_ sender: Any) {
         self.gridView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
