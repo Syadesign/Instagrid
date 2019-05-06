@@ -56,15 +56,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    @objc func rotationHasChange() {
-        if UIDevice.current.orientation.isLandscape {
-            self.swipeLabel.text = "Swipe left to share"
-            self.swipeUpIcon.image = #imageLiteral(resourceName: "swipeLeft")
-        }else{
-            self.swipeLabel.text = "Swipe up to share"
-            self.swipeUpIcon.image = #imageLiteral(resourceName: "swipeUp")
-        }
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -74,7 +65,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var logo: UIImageView!
     
-    @IBOutlet weak var swipeIcon: UIImageView!
     
     @IBOutlet weak var swipeUpIcon: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!

@@ -18,20 +18,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nib-Qb-E7T">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nib-Qb-E7T">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="fDv-vr-dA6">
-                                        <rect key="frame" x="104" y="289" width="167" height="89"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="fDv-vr-dA6">
+                                        <rect key="frame" x="112.5" y="312" width="150" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="HDb-R0-fd3"/>
+                                            <constraint firstAttribute="width" secondItem="fDv-vr-dA6" secondAttribute="height" multiplier="123:35" id="agE-4z-rKT"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.71764705882352942" green="0.84313725490196079" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fDv-vr-dA6" firstAttribute="centerY" secondItem="nib-Qb-E7T" secondAttribute="centerY" id="VGd-ea-INf"/>
+                                    <constraint firstItem="fDv-vr-dA6" firstAttribute="centerX" secondItem="nib-Qb-E7T" secondAttribute="centerX" id="YvY-Z6-G4p"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="nib-Qb-E7T" secondAttribute="bottom" id="5hf-pR-IOl"/>
+                            <constraint firstAttribute="trailing" secondItem="nib-Qb-E7T" secondAttribute="trailing" id="ODf-sO-BpY"/>
+                            <constraint firstAttribute="bottom" secondItem="nib-Qb-E7T" secondAttribute="bottom" id="PmI-kS-ZnU"/>
+                            <constraint firstItem="nib-Qb-E7T" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="XVe-US-231"/>
+                            <constraint firstAttribute="trailing" secondItem="nib-Qb-E7T" secondAttribute="trailing" id="bdw-oU-lnd"/>
+                            <constraint firstItem="nib-Qb-E7T" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="pH6-Oz-UjF"/>
+                            <constraint firstItem="nib-Qb-E7T" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="slf-nb-4Ib"/>
+                            <constraint firstItem="nib-Qb-E7T" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="xcq-T5-fJt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5hf-pR-IOl"/>
+                                <exclude reference="bdw-oU-lnd"/>
+                                <exclude reference="pH6-Oz-UjF"/>
+                                <exclude reference="slf-nb-4Ib"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="5hf-pR-IOl"/>
+                                <include reference="bdw-oU-lnd"/>
+                                <include reference="pH6-Oz-UjF"/>
+                                <include reference="slf-nb-4Ib"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
