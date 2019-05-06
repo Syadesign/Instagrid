@@ -233,21 +233,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let image = convertView(view: gridView)
         
         if isLeft {
-            let transform = CGAffineTransform(translationX: -screenHeigh, y: 0)
             UIView.animate(withDuration: 0.3, animations: {
-                self.gridView.transform = transform
+                self.gridView.frame.origin.x = -self.gridView.frame.width
             })
             
         }else {
-            let transform = CGAffineTransform(translationX: 0, y: -screenHeigh)
             UIView.animate(withDuration: 0.3, animations: {
-                self.gridView.transform = transform
+                self.gridView.frame.origin.y = -self.gridView.frame.height
             })
         }
        
         let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, success, items, error in
-          self.gridView.transform = .identity
+            UIView.animate(withDuration: 0.3, animations: {
+                self.gridView.center.y = self.view.center.y
+                self.gridView.center.x = self.view.center.x
+            })
         }
         present(activityController, animated: true, completion: nil)
     }
