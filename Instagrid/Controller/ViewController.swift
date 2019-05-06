@@ -54,8 +54,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main, using: didRotate)
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         
+        applyShadowOnView(gridView)
     }
     
+    func applyShadowOnView(_ view:UIView) {
+        
+        view.layer.cornerRadius = 6
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOpacity = 1
+        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowRadius = 5
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,6 +79,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var swipeUpIcon: UIImageView!
     @IBOutlet weak var swipeLabel: UILabel!
     
+    
     @IBOutlet var viewTopLeft :UIView?
     @IBOutlet var viewTopRight :UIView?
     @IBOutlet var viewBottomLeft :UIView?
@@ -77,8 +88,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageTopRight: UIImageView!
     @IBOutlet weak var imageBottomLeft: UIImageView!
     @IBOutlet weak var imageBottomRight: UIImageView!
-    
-    
     @IBOutlet weak var bottomRight: UIButton!
     @IBOutlet weak var bottomLeft: UIButton!
     @IBOutlet weak var topRight: UIButton!
@@ -91,6 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var selected1: UIImageView!
     @IBOutlet weak var selected2: UIImageView!
     @IBOutlet weak var selected3: UIImageView!
+    
     @IBOutlet weak var swipeUpView: UIView!
     
     var buttonNumber = 0
@@ -214,24 +224,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func alerteIncompleteGrid(){
         let alert = UIAlertController(title: "Grille incomplète", message: "Pour continuer, veuillez compléter la grille.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+            self.gridView.center.y = self.view.center.y
+            self.gridView.center.x = self.view.center.x
+        })
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-        self.checkCompleteGrid()
         self.sharePicture(isLeft: false)
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
-        self.checkCompleteGrid()
         self.sharePicture(isLeft: true)
     }
     
     func sharePicture(isLeft: Bool) {
         let image = convertView(view: gridView)
-        
+        self.checkCompleteGrid()
         if isLeft {
             UIView.animate(withDuration: 0.3, animations: {
                 self.gridView.frame.origin.x = -self.gridView.frame.width
@@ -242,7 +253,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.gridView.frame.origin.y = -self.gridView.frame.height
             })
         }
-       
+        
         let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, success, items, error in
             UIView.animate(withDuration: 0.3, animations: {
