@@ -266,6 +266,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Open the sharing menu
         let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, success, items, error in
+            self.resetGrid()
             UIView.animate(withDuration: 0.3, animations: {
                 self.gridView.center.y = self.view.center.y
                 self.gridView.center.x = self.view.center.x
@@ -282,6 +283,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         return imgConverted
     }
+    
+    /// Reset the initial grid after the share
+    func resetGrid() {
+        self.imageTopLeft.image = nil
+        self.imageTopRight.image = nil
+        self.imageBottomLeft.image = nil
+        self.imageBottomRight.image = nil
+        self.topLeft.isHidden = false
+        self.topRight.isHidden = false
+        self.bottomLeft.isHidden = false
+        self.bottomRight.isHidden = false
+    }
+    
     
     /// 3 buttons to change the background color of the gridView
     
