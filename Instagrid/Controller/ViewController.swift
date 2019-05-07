@@ -20,6 +20,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         imagePicker.delegate = self
         
+        self.gridButtonsArray = [topLeft, topRight, bottomLeft, bottomRight]
+        self.gridImagesArray = [imageTopRight, imageTopLeft, imageBottomRight, imageBottomLeft]
+        
         // Make the 4 UIImageViews clikable in the grid to change the image
         let tapImage1 = UITapGestureRecognizer(target: self, action: #selector(topLeftButton(_:)))
         tapImage1.delegate = self
@@ -95,6 +98,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomLeft: UIButton!
     @IBOutlet weak var topRight: UIButton!
     @IBOutlet weak var topLeft: UIButton!
+    
+    var gridButtonsArray :[UIButton] = [UIButton]()
+    var gridImagesArray :[UIImageView?] = [UIImageView?]()
     
     // All the component of the modelView
     @IBOutlet weak var button1: UIButton!
@@ -286,14 +292,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// Reset the initial grid after the share
     func resetGrid() {
-        self.imageTopLeft.image = nil
-        self.imageTopRight.image = nil
-        self.imageBottomLeft.image = nil
-        self.imageBottomRight.image = nil
-        self.topLeft.isHidden = false
-        self.topRight.isHidden = false
-        self.bottomLeft.isHidden = false
-        self.bottomRight.isHidden = false
+        for img in self.gridImagesArray {
+            img!.image = nil
+        }
+        for i in self.gridButtonsArray {
+            i.isHidden = false
+        }
     }
     
     
