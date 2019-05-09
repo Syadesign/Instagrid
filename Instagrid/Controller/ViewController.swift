@@ -33,13 +33,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let tapImage4 = UITapGestureRecognizer(target: self, action: #selector(bottomRightButton(_:)))
         tapImage4.delegate = self
         self.imageTopLeft.addGestureRecognizer(tapImage1)
-        self.imageTopLeft.isUserInteractionEnabled = true
         self.imageTopRight.addGestureRecognizer(tapImage2)
-        self.imageTopRight.isUserInteractionEnabled = true
         self.imageBottomLeft.addGestureRecognizer(tapImage3)
-        self.imageBottomLeft.isUserInteractionEnabled = true
         self.imageBottomRight.addGestureRecognizer(tapImage4)
-        self.imageBottomRight.isUserInteractionEnabled = true
+        for i in gridImagesArray {
+            i?.isUserInteractionEnabled = true
+        }
         
         //Observe the device's rotation
         let didRotate: (Notification) -> Void = { notification in
@@ -51,14 +50,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.swipeLabel.text = "Swipe up to share"
                 self.swipeUpIcon.image = #imageLiteral(resourceName: "swipeUp")
             default:
-                print("error")
+                break
             }
         }
         NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main, using: didRotate)
-        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         
         // Apply shadow on the gridView
         applyShadowOnView(gridView)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     /// Apply a shadow on a UIView.
@@ -125,7 +128,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.imagePicker.sourceType = .photoLibrary
                     self.imagePicker.allowsEditing = true
                     self.present(self.imagePicker, animated: true, completion: nil)
-                    button.isHidden = true
                 }
             } else {
                 self.alertAuthorization()
@@ -218,7 +220,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /// Check if the grid is complete before sharing
-    func checkCompleteGrid() {
+    func checkCompleteGrid() -> Bool {
         switch gridView.style {
         case .model1:
             if imageTopRight.image == nil ||  imageBottomLeft.image == nil ||  imageBottomRight.image == nil {
@@ -233,31 +235,47 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.alerteIncompleteGrid()
             }
         }
+        return true
     }
+    
+    func animateIncompleteAlert() {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, animations: {
+            self.gridView.transform = CGAffineTransform(scaleX: 1.04, y: 1.04)
+        }) { (success: Bool) in
+            if success {
+                self.gridView.transform = .identity
+            }
+        }
+        
+    }
+    
     
     /// Display an alert if the grid isn't complete.
     func alerteIncompleteGrid(){
         let alert = UIAlertController(title: "Grille incomplète", message: "Pour continuer, veuillez compléter la grille.", preferredStyle: .alert)
+        animateIncompleteAlert()
         let action = UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-            self.gridView.center.y = self.view.center.y
-            self.gridView.center.x = self.view.center.x
         })
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-        self.sharePicture(isLeft: false)
+        if checkCompleteGrid() == false {
+            self.sharePicture(isLeft: false)
+        }
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
-        self.sharePicture(isLeft: true)
+        if checkCompleteGrid() == false {
+            self.sharePicture(isLeft: true)
+        }
     }
     
     /// Transform the UIView in UIimage (convertView()), then check if the grid is complete, the grid view disappear with an animation and the UIActivityController appear.
     func sharePicture(isLeft: Bool) {
         let image = convertView(view: gridView)
-        self.checkCompleteGrid()
+        
         if isLeft {
             UIView.animate(withDuration: 0.3, animations: {
                 self.gridView.frame.origin.x = -self.gridView.frame.width
@@ -300,7 +318,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    
     /// 3 buttons to change the background color of the gridView
     
     @IBAction func whiteBackground(_ sender: Any) {
@@ -314,13 +331,4 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func blackBackground(_ sender: Any) {
         self.gridView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
-    
 }
-
-
-
-
-
-
-
-
