@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let screenHeigh = UIScreen.main.bounds.height
     let screenWidth = UIScreen.main.bounds.maxX
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
@@ -127,6 +128,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.buttonNumber = number
                     self.imagePicker.sourceType = .photoLibrary
                     self.imagePicker.allowsEditing = true
+                    button.isHidden = true
                     self.present(self.imagePicker, animated: true, completion: nil)
                 }
             } else {
@@ -220,19 +222,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /// Check if the grid is complete before sharing
-    func checkCompleteGrid() -> Bool {
+    func checkCompleteGrid() -> Bool{
         switch gridView.style {
         case .model1:
             if imageTopRight.image == nil ||  imageBottomLeft.image == nil ||  imageBottomRight.image == nil {
-                self.alerteIncompleteGrid()
+                return false
             }
         case .model2:
             if imageTopLeft.image == nil ||  imageTopRight.image == nil ||   imageBottomRight.image == nil {
-                self.alerteIncompleteGrid()
+                 return false
             }
         case .model3:
             if imageTopLeft.image == nil ||  imageTopRight.image == nil ||  imageBottomLeft.image == nil ||  imageBottomRight.image == nil {
-                self.alerteIncompleteGrid()
+                 return false
             }
         }
         return true
@@ -257,36 +259,36 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let action = UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
         })
         alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: {
+        })
     }
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-        if checkCompleteGrid() == false {
-            self.sharePicture(isLeft: false)
-        }
+       self.sharePicture(isLeft: false)
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
-        if checkCompleteGrid() == false {
+      
             self.sharePicture(isLeft: true)
-        }
+        
     }
     
     /// Transform the UIView in UIimage (convertView()), then check if the grid is complete, the grid view disappear with an animation and the UIActivityController appear.
     func sharePicture(isLeft: Bool) {
         let image = convertView(view: gridView)
-        
+        if checkCompleteGrid() == false {
+            alerteIncompleteGrid()
+        }else{
         if isLeft {
             UIView.animate(withDuration: 0.3, animations: {
                 self.gridView.frame.origin.x = -self.gridView.frame.width
             })
             
-        }else {
+        }else{
             UIView.animate(withDuration: 0.3, animations: {
                 self.gridView.frame.origin.y = -self.gridView.frame.height
             })
         }
-        
         // Open the sharing menu
         let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, success, items, error in
@@ -297,6 +299,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             })
         }
         present(activityController, animated: true, completion: nil)
+    }
     }
     
     /// Convert a UIView to a UIImage for share it
