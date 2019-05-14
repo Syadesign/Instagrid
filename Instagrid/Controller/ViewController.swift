@@ -243,6 +243,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return true
     }
     
+    /// Animate the grid if it's incomplete
     func animateIncompleteAlert() {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, animations: {
             self.gridView.transform = CGAffineTransform(scaleX: 1.04, y: 1.04)
@@ -314,6 +315,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         for i in self.gridButtonsArray {
             i.isHidden = false
         }
+        gridView.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
     }
     
     /// 3 buttons to change the background color of the gridView
