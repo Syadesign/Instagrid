@@ -124,6 +124,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
             if buttonNumber == 1 {
+                imageTopLeft.contentMode = .scaleAspectFill
+                imageTopLeft.clipsToBounds = true
                 imageTopLeft.image = image
                 topLeft.isHidden = true
             } else if buttonNumber == 2 {
