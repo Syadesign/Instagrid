@@ -11,6 +11,7 @@ import Photos
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
+    var imageToShare = Image()
     var imagePicker = UIImagePickerController()
     
     let screenHeigh = UIScreen.main.bounds.height
@@ -119,16 +120,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Use this variable to assign a number to each button of the grid View. I use it for the imagePickerController.
     var buttonNumber = 0
     
+    /// Add a picture from the user library
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
+            if buttonNumber == 1 {
+                imageTopLeft.image = image
+                topLeft.isHidden = true
+            } else if buttonNumber == 2 {
+                imageTopRight.contentMode = .scaleAspectFill
+                imageTopRight.clipsToBounds = true
+                imageTopRight.image = image
+                topRight.isHidden = true
+            } else if buttonNumber == 3 {
+                imageBottomLeft.contentMode = .scaleAspectFill
+                imageBottomLeft.clipsToBounds = true
+                imageBottomLeft.image = image
+                bottomLeft.isHidden = true
+            } else if buttonNumber == 4 {
+                imageBottomRight.contentMode = .scaleAspectFill
+                imageBottomRight.clipsToBounds = true
+                imageBottomRight.image = image
+                bottomRight.isHidden = true
+            }
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
     
     /// Request authorization to access the user library and choose a picture.
-    @objc func pickImage (button :UIButton, number :Int) {
+    @objc func pickImage (number :Int) {
         PHPhotoLibrary.requestAuthorization({status in
             if status == .authorized{
                 DispatchQueue.main.async {
                     self.buttonNumber = number
                     self.imagePicker.sourceType = .photoLibrary
                     self.imagePicker.allowsEditing = true
-                    button.isHidden = true
                     self.present(self.imagePicker, animated: true, completion: nil)
                 }
             } else {
@@ -160,19 +185,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// 4 buttons in the grid view to pick an image in the library
     @IBAction func topLeftButton(_ sender: Any) {
-        pickImage(button: topLeft, number: 1)
+        pickImage(number: 1)
     }
     
     @IBAction func topRightButton(_ sender: Any) {
-        pickImage(button: topRight, number: 2)
+        pickImage(number: 2)
     }
     
     @IBAction func bottomLeftButton(_ sender: Any) {
-        pickImage(button: bottomLeft, number: 3)
+        pickImage(number: 3)
     }
     
     @IBAction func bottomRightButton(_ sender: Any) {
-        pickImage(button: bottomRight, number: 4)
+        pickImage(number: 4)
     }
     
     
@@ -197,29 +222,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         selected(style: .model3)
     }
     
-    /// Add a picture from the user library
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
-            if buttonNumber == 1 {
-                imageTopLeft.contentMode = .scaleAspectFill
-                imageTopLeft.clipsToBounds = true
-                imageTopLeft.image = image
-            } else if buttonNumber == 2 {
-                imageTopRight.contentMode = .scaleAspectFill
-                imageTopRight.clipsToBounds = true
-                imageTopRight.image = image
-            } else if buttonNumber == 3 {
-                imageBottomLeft.contentMode = .scaleAspectFill
-                imageBottomLeft.clipsToBounds = true
-                imageBottomLeft.image = image
-            } else if buttonNumber == 4 {
-                imageBottomRight.contentMode = .scaleAspectFill
-                imageBottomRight.clipsToBounds = true
-                imageBottomRight.image = image
-            }
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
+    
     
     /// Check if the grid is complete before sharing
     func checkCompleteGrid() -> Bool{
@@ -275,7 +278,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// Transform the UIView in UIimage (convertView()), then check if the grid is complete, the grid view disappear with an animation and the UIActivityController appear.
     func sharePicture(isLeft: Bool) {
-        let image = convertView(view: gridView)
+        let image = self.imageToShare.convertView(view: gridView)
         if checkCompleteGrid() == false {
             alerteIncompleteGrid()
         }else{
@@ -302,14 +305,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     }
     
-    /// Convert a UIView to a UIImage for share it
-    func convertView(view: GridView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        let imgConverted = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return imgConverted
-    }
     
     /// Reset the initial grid after the share
     func resetGrid() {
