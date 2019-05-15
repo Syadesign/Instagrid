@@ -261,6 +261,9 @@
                                         <connections>
                                             <outlet property="bottomStackView" destination="ZuX-WG-gTP" id="chd-BB-sfY"/>
                                             <outlet property="gridStackView" destination="M6M-9n-Um7" id="KAn-yr-lLC"/>
+                                            <outlet property="selected1" destination="dJ6-8v-rSB" id="oGO-JO-LDO"/>
+                                            <outlet property="selected2" destination="pwe-aE-Jbf" id="pe9-jZ-yzh"/>
+                                            <outlet property="selected3" destination="bmd-BL-0tT" id="JND-lX-dZ0"/>
                                             <outlet property="topStackView" destination="qbC-t2-p1D" id="um7-gw-aml"/>
                                             <outlet property="viewBottomLeft" destination="eSy-30-wG4" id="0q7-fZ-HeA"/>
                                             <outlet property="viewBottomRight" destination="Qrl-Pn-p9o" id="ToD-3x-X6H"/>

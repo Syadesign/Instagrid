@@ -22,7 +22,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         imagePicker.delegate = self
         
-        self.gridButtonsArray = [topLeft, topRight, bottomLeft, bottomRight]
         self.gridImagesArray = [imageTopRight, imageTopLeft, imageBottomRight, imageBottomLeft]
         
         // Make the 4 UIImageViews clikable in the grid to change the image
@@ -58,7 +57,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main, using: didRotate)
         
         // Apply shadow on the gridView
-        applyShadowOnView(gridView)
+        gridView.applyShadowOnView(gridView)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -67,15 +66,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /// Apply a shadow on a UIView.
-    func applyShadowOnView(_ view:UIView) {
-        
-        view.layer.cornerRadius = 6
-        view.layer.shadowColor = UIColor.darkGray.cgColor
-        view.layer.shadowOpacity = 1
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowRadius = 5
-        
-    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -104,7 +95,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topRight: UIButton!
     @IBOutlet weak var topLeft: UIButton!
     
-    var gridButtonsArray :[UIButton] = [UIButton]()
     var gridImagesArray :[UIImageView?] = [UIImageView?]()
     
     // All the component of the modelView
@@ -194,26 +184,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickImage(number: 4)
     }
     
-    
-    /// Display the selected image when the model is selected.
-    func selected(style: GridView.Style) {
-        gridView?.style = style
-        selected1.isHidden = style != .model1
-        selected2.isHidden = style != .model2
-        selected3.isHidden = style != .model3
-    }
-    
     /// 3 buttons on the bottom for the portrait and on the right for the landscape to chose the grid model.
     @IBAction func ButtonModel1(_ sender: Any) {
-        selected(style: .model1)
+        gridView.selected(style: .model1)
     }
     
     @IBAction func ButtonModel2(_ sender: Any) {
-        selected(style: .model2)
+        gridView.selected(style: .model2)
     }
     
     @IBAction func ButtoModel3(_ sender: Any) {
-        selected(style: .model3)
+        gridView.selected(style: .model3)
     }
     
     /// Animate the grid if it's incomplete

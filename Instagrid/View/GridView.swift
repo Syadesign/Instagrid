@@ -21,6 +21,10 @@ class GridView: UIView {
     @IBOutlet var gallery : [UIImageView]!
     @IBOutlet var buttons : [UIButton]!
     
+    @IBOutlet var selected1 :UIImageView?
+    @IBOutlet var selected2 :UIImageView?
+    @IBOutlet var selected3 :UIImageView?
+    
     // enum for the 3 grid models
     enum Style {
         case model1, model2, model3
@@ -57,6 +61,14 @@ class GridView: UIView {
         }
     }
     
+    /// Display the selected image when the model is selected.
+    func selected(style: Style) {
+        self.style = style
+        selected1!.isHidden = style != .model1
+        selected2!.isHidden = style != .model2
+        selected3!.isHidden = style != .model3
+    }
+    
     /// Check if the grid is complete before sharing
     func checkCompleteGrid() -> Bool{
         switch style {
@@ -85,6 +97,17 @@ class GridView: UIView {
             i.isHidden = false
         }
         backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
+    }
+    
+    /// Apply a shadow on a UIView.
+    func applyShadowOnView(_ view:UIView) {
+        
+        view.layer.cornerRadius = 6
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOpacity = 1
+        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowRadius = 5
+        
     }
 }
 
