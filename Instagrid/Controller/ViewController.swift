@@ -224,27 +224,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         selected(style: .model3)
     }
     
-    
-    
-    /// Check if the grid is complete before sharing
-    func checkCompleteGrid() -> Bool{
-        switch gridView.style {
-        case .model1:
-            if imageTopRight.image == nil ||  imageBottomLeft.image == nil ||  imageBottomRight.image == nil {
-                return false
-            }
-        case .model2:
-            if imageTopLeft.image == nil ||  imageTopRight.image == nil ||   imageBottomRight.image == nil {
-                 return false
-            }
-        case .model3:
-            if imageTopLeft.image == nil ||  imageTopRight.image == nil ||  imageBottomLeft.image == nil ||  imageBottomRight.image == nil {
-                 return false
-            }
-        }
-        return true
-    }
-    
     /// Animate the grid if it's incomplete
     func animateIncompleteAlert() {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, animations: {
@@ -282,7 +261,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     /// Transform the UIView in UIimage (convertView()), then check if the grid is complete, the grid view disappear with an animation and the UIActivityController appear.
     func sharePicture(isLeft: Bool) {
         let image = self.imageToShare.convertView(view: gridView)
-        if checkCompleteGrid() == false {
+        if gridView.checkCompleteGrid() == false {
             alerteIncompleteGrid()
         }else{
         if isLeft {
@@ -298,7 +277,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Open the sharing menu
         let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, success, items, error in
-            self.resetGrid()
+            self.gridView.resetGrid()
             UIView.animate(withDuration: 0.3, animations: {
                 self.gridView.center.y = self.view.center.y
                 self.gridView.center.x = self.view.center.x
@@ -308,17 +287,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     }
     
-    
-    /// Reset the initial grid after the share
-    func resetGrid() {
-        for img in self.gridImagesArray {
-            img!.image = nil
-        }
-        for i in self.gridButtonsArray {
-            i.isHidden = false
-        }
-        gridView.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
-    }
+
     
     /// 3 buttons to change the background color of the gridView
     

@@ -22,6 +22,8 @@ struct Image {
         
     }
     
+   
+    
     func notif() {
         let name = Notification.Name(rawValue : "imageConverted")
         let notification = Notification(name: name)

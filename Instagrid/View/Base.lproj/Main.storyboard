@@ -270,6 +270,10 @@
                                             <outletCollection property="gallery" destination="yI0-IH-ULd" collectionClass="NSMutableArray" id="Wni-Dv-DVE"/>
                                             <outletCollection property="gallery" destination="MXD-RT-3mq" collectionClass="NSMutableArray" id="vNd-qF-Aap"/>
                                             <outletCollection property="gallery" destination="frF-uH-Ti0" collectionClass="NSMutableArray" id="6j6-IZ-VdS"/>
+                                            <outletCollection property="buttons" destination="Yzt-Jf-K1p" collectionClass="NSMutableArray" id="G4K-vD-9V7"/>
+                                            <outletCollection property="buttons" destination="cp6-n0-LxW" collectionClass="NSMutableArray" id="AaC-EF-Jsf"/>
+                                            <outletCollection property="buttons" destination="anM-PU-bKr" collectionClass="NSMutableArray" id="zyW-BC-2wm"/>
+                                            <outletCollection property="buttons" destination="lrv-dj-8UT" collectionClass="NSMutableArray" id="ef7-27-eO3"/>
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="nnw-lI-xad" userLabel="backGroundStackView">
@@ -644,10 +648,10 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Sdg-fl-6xU"/>
                                         <exclude reference="9Ct-XD-Ohr"/>
                                         <exclude reference="iTg-GK-84u"/>
                                         <exclude reference="UQv-aR-j2p"/>
-                                        <exclude reference="Sdg-fl-6xU"/>
                                         <exclude reference="CIC-yv-Kre"/>
                                         <exclude reference="182-kj-c0s"/>
                                         <exclude reference="6M0-jQ-E1I"/>
@@ -660,13 +664,13 @@
                                         <include reference="Mur-u6-jET"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="Sdg-fl-6xU"/>
+                                        <exclude reference="h46-MU-pEM"/>
                                         <include reference="9Ct-XD-Ohr"/>
                                         <exclude reference="dmd-WB-iU7"/>
                                         <include reference="iTg-GK-84u"/>
                                         <exclude reference="AHd-SQ-DOP"/>
                                         <include reference="UQv-aR-j2p"/>
-                                        <include reference="Sdg-fl-6xU"/>
-                                        <exclude reference="h46-MU-pEM"/>
                                         <exclude reference="2et-Wr-NsL"/>
                                         <include reference="CIC-yv-Kre"/>
                                         <exclude reference="tvD-It-zKk"/>

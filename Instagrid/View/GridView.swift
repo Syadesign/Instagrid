@@ -19,6 +19,7 @@ class GridView: UIView {
     @IBOutlet var viewBottomRight :UIView?
     
     @IBOutlet var gallery : [UIImageView]!
+    @IBOutlet var buttons : [UIButton]!
     
     // enum for the 3 grid models
     enum Style {
@@ -50,6 +51,36 @@ class GridView: UIView {
         case .model3:
             model(topLeft: false, topRight: false, bottomLeft: false, bottomRight: false)
         }
+    }
+    
+    /// Check if the grid is complete before sharing
+    func checkCompleteGrid() -> Bool{
+        switch style {
+        case .model1:
+            if gallery[1].image == nil ||  gallery[2].image == nil ||  gallery[3].image == nil {
+                return false
+            }
+        case .model2:
+            if gallery[0].image == nil ||  gallery[1].image == nil ||   gallery[3].image == nil {
+                return false
+            }
+        case .model3:
+            if gallery[0].image == nil ||  gallery[1].image == nil ||  gallery[2].image == nil ||  gallery[3].image == nil {
+                return false
+            }
+        }
+        return true
+    }
+    
+    /// Reset the initial grid after the share
+    func resetGrid() {
+        for img in gallery {
+            img.image = nil
+        }
+        for i in buttons {
+            i.isHidden = false
+        }
+        backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
     }
 }
 
