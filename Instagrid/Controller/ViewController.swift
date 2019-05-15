@@ -196,7 +196,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.gridView.transform = .identity
             }
         }
-        
     }
     
     /// Display an alert if the grid isn't complete.
@@ -215,9 +214,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
-      
             self.sharePicture(isLeft: true)
-        
     }
     
     /// Transform the UIView in UIimage (convertView()), then check if the grid is complete, the grid view disappear with an animation and the UIActivityController appear.

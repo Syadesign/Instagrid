@@ -19,14 +19,7 @@ struct Image {
         let imgConverted = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return imgConverted
-        
     }
     
-    
-    func notif() {
-        let name = Notification.Name(rawValue : "imageConverted")
-        let notification = Notification(name: name)
-        NotificationCenter.default.post(notification)
-    }
 }
 

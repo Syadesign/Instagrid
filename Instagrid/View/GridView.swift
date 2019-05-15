@@ -34,10 +34,6 @@ class GridView: UIView {
     var style :Style = .model1 {
         didSet {
             setStyle(style)
-            for i in gallery {
-                    i.contentMode = .scaleAspectFill
-                    i.clipsToBounds = true
-            }
         }
     }
     
