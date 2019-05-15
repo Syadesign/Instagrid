@@ -124,23 +124,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
             if buttonNumber == 1 {
-                imageTopLeft.contentMode = .scaleAspectFill
-                imageTopLeft.clipsToBounds = true
                 imageTopLeft.image = image
                 topLeft.isHidden = true
             } else if buttonNumber == 2 {
-                imageTopRight.contentMode = .scaleAspectFill
-                imageTopRight.clipsToBounds = true
                 imageTopRight.image = image
                 topRight.isHidden = true
             } else if buttonNumber == 3 {
-                imageBottomLeft.contentMode = .scaleAspectFill
-                imageBottomLeft.clipsToBounds = true
                 imageBottomLeft.image = image
                 bottomLeft.isHidden = true
             } else if buttonNumber == 4 {
-                imageBottomRight.contentMode = .scaleAspectFill
-                imageBottomRight.clipsToBounds = true
                 imageBottomRight.image = image
                 bottomRight.isHidden = true
             }
@@ -236,7 +228,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    
     /// Display an alert if the grid isn't complete.
     func alerteIncompleteGrid(){
         let alert = UIAlertController(title: "Grille incomplète", message: "Pour continuer, veuillez compléter la grille.", preferredStyle: .alert)
@@ -286,8 +277,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(activityController, animated: true, completion: nil)
     }
     }
-    
-
     
     /// 3 buttons to change the background color of the gridView
     
