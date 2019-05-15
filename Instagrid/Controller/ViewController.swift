@@ -11,6 +11,42 @@ import Photos
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var gridView: GridView!
+    
+    @IBOutlet weak var logo: UIImageView!
+    
+    // All the component of the swipeView
+    @IBOutlet weak var swipeUpIcon: UIImageView!
+    @IBOutlet weak var swipeLabel: UILabel!
+    @IBOutlet weak var swipeUpView: UIView!
+    
+    // All the component of the gridView
+    @IBOutlet var viewTopLeft :UIView?
+    @IBOutlet var viewTopRight :UIView?
+    @IBOutlet var viewBottomLeft :UIView?
+    @IBOutlet var viewBottomRight :UIView?
+    @IBOutlet weak var imageTopLeft: UIImageView!
+    @IBOutlet weak var imageTopRight: UIImageView!
+    @IBOutlet weak var imageBottomLeft: UIImageView!
+    @IBOutlet weak var imageBottomRight: UIImageView!
+    @IBOutlet weak var bottomRight: UIButton!
+    @IBOutlet weak var bottomLeft: UIButton!
+    @IBOutlet weak var topRight: UIButton!
+    @IBOutlet weak var topLeft: UIButton!
+    
+    var gridImagesArray :[UIImageView?] = [UIImageView?]()
+    
+    // All the component of the modelView
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var selected1: UIImageView!
+    @IBOutlet weak var selected2: UIImageView!
+    @IBOutlet weak var selected3: UIImageView!
+    
+    // Use this variable to assign a number to each button of the grid View. I use it for the imagePickerController.
+    var buttonNumber = 0
+    
     var imageToShare = Image()
     var imagePicker = UIImagePickerController()
     
@@ -64,52 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
-    
-    /// Apply a shadow on a UIView.
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    @IBOutlet weak var gridView: GridView!
-    
-    @IBOutlet weak var logo: UIImageView!
-    
-    // All the component of the swipeView
-    @IBOutlet weak var swipeUpIcon: UIImageView!
-    @IBOutlet weak var swipeLabel: UILabel!
-    @IBOutlet weak var swipeUpView: UIView!
-    
-    // All the component of the gridView
-    @IBOutlet var viewTopLeft :UIView?
-    @IBOutlet var viewTopRight :UIView?
-    @IBOutlet var viewBottomLeft :UIView?
-    @IBOutlet var viewBottomRight :UIView?
-    @IBOutlet weak var imageTopLeft: UIImageView!
-    @IBOutlet weak var imageTopRight: UIImageView!
-    @IBOutlet weak var imageBottomLeft: UIImageView!
-    @IBOutlet weak var imageBottomRight: UIImageView!
-    @IBOutlet weak var bottomRight: UIButton!
-    @IBOutlet weak var bottomLeft: UIButton!
-    @IBOutlet weak var topRight: UIButton!
-    @IBOutlet weak var topLeft: UIButton!
-    
-    var gridImagesArray :[UIImageView?] = [UIImageView?]()
-    
-    // All the component of the modelView
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var selected1: UIImageView!
-    @IBOutlet weak var selected2: UIImageView!
-    @IBOutlet weak var selected3: UIImageView!
-    
-    
-    
-    // Use this variable to assign a number to each button of the grid View. I use it for the imagePickerController.
-    var buttonNumber = 0
-    
+
     /// Add a picture from the user library
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
@@ -130,8 +121,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismiss(animated: true, completion: nil)
     }
     
-    /// Request authorization to access the user library and choose a picture.
-    @objc func pickImage (number :Int) {
+    /// Choose a picture in the user library
+    @objc func pickImage(number: Int) {
+        // Request authorization to access the user library and choose a picture.
         PHPhotoLibrary.requestAuthorization({status in
             if status == .authorized{
                 DispatchQueue.main.async {
@@ -144,11 +136,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.alertAuthorization()
             }
         })
-        
     }
     
     /// Display an alert if the access to the library is not authorized. The user can cancel the operation or go to his settings to authorize the access.
-    func alertAuthorization(){
+    func alertAuthorization() {
         let alert = UIAlertController(title: "Accès bibliothèque", message: "Pour continuer, veuillez autoriser Instagrid à accéder à vos photos.", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Réglages", style: .default) { (action2) in
@@ -160,11 +151,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /// Access the application settings.
-    func accesSettings(){
+    func accesSettings() {
         if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        
     }
     
     /// 4 buttons in the grid view to pick an image in the library
