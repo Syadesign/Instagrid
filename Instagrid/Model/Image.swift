@@ -13,7 +13,6 @@ struct Image {
     
     /// Convert the gridView into an UIImage to share it
     func convertView(view: GridView) -> UIImage? {
-        
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         let imgConverted = UIGraphicsGetImageFromCurrentImageContext()

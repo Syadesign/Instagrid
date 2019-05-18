@@ -125,7 +125,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func pickImage(number: Int) {
         // Request authorization to access the user library and choose a picture.
         PHPhotoLibrary.requestAuthorization({status in
-            if status == .authorized{
+            if status == .authorized {
                 DispatchQueue.main.async {
                     self.buttonNumber = number
                     self.imagePicker.sourceType = .photoLibrary
@@ -199,7 +199,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /// Display an alert if the grid isn't complete.
-    func alerteIncompleteGrid(){
+    func alerteIncompleteGrid() {
         let alert = UIAlertController(title: "Grille incomplète", message: "Pour continuer, veuillez compléter la grille.", preferredStyle: .alert)
         animateIncompleteAlert()
         let action = UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
@@ -222,13 +222,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let image = self.imageToShare.convertView(view: gridView)
         if gridView.checkCompleteGrid() == false {
             alerteIncompleteGrid()
-        }else{
+        } else {
         if isLeft {
             UIView.animate(withDuration: 0.3, animations: {
                 self.gridView.frame.origin.x = -self.gridView.frame.width
             })
             
-        }else{
+        } else {
             UIView.animate(withDuration: 0.3, animations: {
                 self.gridView.frame.origin.y = -self.gridView.frame.height
             })
@@ -247,7 +247,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /// 3 buttons to change the background color of the gridView
-    
     @IBAction func whiteBackground(_ sender: Any) {
         self.gridView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }

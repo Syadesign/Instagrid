@@ -38,7 +38,7 @@ class GridView: UIView {
     }
     
     /// Create variables to set the model style and hide the corresponding view
-    func model(topLeft: Bool, topRight: Bool, bottomLeft: Bool, bottomRight: Bool ) {
+    func model(topLeft: Bool, topRight: Bool, bottomLeft: Bool, bottomRight: Bool) {
         viewTopLeft?.isHidden = topLeft
         viewTopRight?.isHidden = topRight
         viewBottomLeft?.isHidden = bottomLeft
@@ -97,13 +97,11 @@ class GridView: UIView {
     
     /// Apply a shadow on a UIView.
     func applyShadowOnView(_ view:UIView) {
-        
         view.layer.cornerRadius = 6
         view.layer.shadowColor = UIColor.darkGray.cgColor
         view.layer.shadowOpacity = 1
         view.layer.shadowOffset = CGSize.zero
         view.layer.shadowRadius = 5
-        
     }
 }
 
