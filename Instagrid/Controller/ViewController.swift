@@ -100,7 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
-
+    
     /// Add a picture from the user library
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage ] as? UIImage {
@@ -210,11 +210,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-       self.sharePicture(isLeft: false)
+        self.sharePicture(isLeft: false)
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
-            self.sharePicture(isLeft: true)
+        self.sharePicture(isLeft: true)
     }
     
     /// Transform the UIView in UIimage (convertView()), then check if the grid is complete, the grid view disappear with an animation and the UIActivityController appear.
@@ -234,10 +234,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 })
             }
             // Open the sharing menu
-            if self.imageToShare.convertView(view: gridView) != nil {
-                let image = self.imageToShare.convertView(view: gridView)
-                
-                let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+            if let image = self.imageToShare.convertView(view: gridView)  {
+                let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
                 activityController.completionWithItemsHandler = { activity, success, items, error in
                     self.gridView.resetGrid()
                     UIView.animate(withDuration: 0.3, animations: {
