@@ -174,7 +174,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         pickImage(number: 4)
     }
     
-    /// 3 buttons on the bottom for the portrait and on the right for the landscape to chose the grid model.
+    /// 3 buttons on the bottom for the portrait and on the right for the landscape to choose the grid model.
     @IBAction func ButtonModel1(_ sender: Any) {
         gridView.selected(style: .model1)
     }
@@ -219,31 +219,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// Transform the UIView in UIimage (convertView()), then check if the grid is complete, the grid view disappear with an animation and the UIActivityController appear.
     func sharePicture(isLeft: Bool) {
-        let image = self.imageToShare.convertView(view: gridView)
+        
         if gridView.checkCompleteGrid() == false {
             alerteIncompleteGrid()
         } else {
-        if isLeft {
-            UIView.animate(withDuration: 0.3, animations: {
-                self.gridView.frame.origin.x = -self.gridView.frame.width
-            })
-            
-        } else {
-            UIView.animate(withDuration: 0.3, animations: {
-                self.gridView.frame.origin.y = -self.gridView.frame.height
-            })
+            if isLeft {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.gridView.frame.origin.x = -self.gridView.frame.width
+                })
+                
+            } else {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.gridView.frame.origin.y = -self.gridView.frame.height
+                })
+            }
+            // Open the sharing menu
+            if self.imageToShare.convertView(view: gridView) != nil {
+                let image = self.imageToShare.convertView(view: gridView)
+                
+                let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+                activityController.completionWithItemsHandler = { activity, success, items, error in
+                    self.gridView.resetGrid()
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.gridView.center.y = self.view.center.y
+                        self.gridView.center.x = self.view.center.x
+                    })
+                }
+                present(activityController, animated: true, completion: nil)
+            }
         }
-        // Open the sharing menu
-        let activityController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
-        activityController.completionWithItemsHandler = { activity, success, items, error in
-            self.gridView.resetGrid()
-            UIView.animate(withDuration: 0.3, animations: {
-                self.gridView.center.y = self.view.center.y
-                self.gridView.center.x = self.view.center.x
-            })
-        }
-        present(activityController, animated: true, completion: nil)
-    }
     }
     
     /// 3 buttons to change the background color of the gridView
