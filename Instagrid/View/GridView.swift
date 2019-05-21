@@ -18,8 +18,13 @@ class GridView: UIView {
     @IBOutlet var viewBottomLeft :UIView?
     @IBOutlet var viewBottomRight :UIView?
     
+    // arrays with the components of the gridView
+    // 4 images
     @IBOutlet var gallery : [UIImageView]!
+    // 4 buttons
     @IBOutlet var buttons : [UIButton]!
+    // 4 views, 4 images, 4 buttons (all components)
+    @IBOutlet var views : [UIView]!
     
     @IBOutlet var selected1 :UIImageView?
     @IBOutlet var selected2 :UIImageView?
@@ -95,9 +100,15 @@ class GridView: UIView {
         backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
     }
     
+    /// Apply rounded corners on views inside the gridView
+    func roundedCorner() {
+        for i in views {
+            i.layer.cornerRadius = 5
+        }
+    }
+    
     /// Apply a shadow on a UIView.
     func applyShadowOnView(_ view:UIView) {
-        view.layer.cornerRadius = 6
         view.layer.shadowColor = UIColor.darkGray.cgColor
         view.layer.shadowOpacity = 1
         view.layer.shadowOffset = CGSize.zero

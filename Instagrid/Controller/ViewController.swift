@@ -94,6 +94,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Apply shadow on the gridView
         gridView.applyShadowOnView(gridView)
+        // Apply rounded corners on views inside the gridView
+        gridView.roundedCorner()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -277,6 +277,19 @@
                                             <outletCollection property="buttons" destination="cp6-n0-LxW" collectionClass="NSMutableArray" id="AaC-EF-Jsf"/>
                                             <outletCollection property="buttons" destination="anM-PU-bKr" collectionClass="NSMutableArray" id="zyW-BC-2wm"/>
                                             <outletCollection property="buttons" destination="lrv-dj-8UT" collectionClass="NSMutableArray" id="ef7-27-eO3"/>
+                                            <outletCollection property="views" destination="yqc-ad-UlQ" collectionClass="NSMutableArray" id="Zqe-lR-qIG"/>
+                                            <outletCollection property="views" destination="GA6-KU-5gK" collectionClass="NSMutableArray" id="VBF-Jd-ehj"/>
+                                            <outletCollection property="views" destination="eSy-30-wG4" collectionClass="NSMutableArray" id="UT3-Dn-X93"/>
+                                            <outletCollection property="views" destination="Qrl-Pn-p9o" collectionClass="NSMutableArray" id="5fW-S3-q4z"/>
+                                            <outletCollection property="views" destination="l7n-f2-IFe" collectionClass="NSMutableArray" id="7fp-sP-O3U"/>
+                                            <outletCollection property="views" destination="yI0-IH-ULd" collectionClass="NSMutableArray" id="Wtx-8j-kfI"/>
+                                            <outletCollection property="views" destination="MXD-RT-3mq" collectionClass="NSMutableArray" id="qb9-af-r0f"/>
+                                            <outletCollection property="views" destination="frF-uH-Ti0" collectionClass="NSMutableArray" id="4H2-MS-aJI"/>
+                                            <outletCollection property="views" destination="cp6-n0-LxW" collectionClass="NSMutableArray" id="N0e-fQ-nO9"/>
+                                            <outletCollection property="views" destination="cp6-n0-LxW" collectionClass="NSMutableArray" id="HEx-BN-ZZh"/>
+                                            <outletCollection property="views" destination="anM-PU-bKr" collectionClass="NSMutableArray" id="UE3-EM-2XH"/>
+                                            <outletCollection property="views" destination="lrv-dj-8UT" collectionClass="NSMutableArray" id="PVH-kK-dqo"/>
+                                            <outletCollection property="views" destination="Yzt-Jf-K1p" collectionClass="NSMutableArray" id="8td-C5-eFd"/>
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="nnw-lI-xad" userLabel="backGroundStackView">
@@ -644,10 +657,10 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Sdg-fl-6xU"/>
                                         <exclude reference="9Ct-XD-Ohr"/>
                                         <exclude reference="iTg-GK-84u"/>
                                         <exclude reference="UQv-aR-j2p"/>
-                                        <exclude reference="Sdg-fl-6xU"/>
                                         <exclude reference="CIC-yv-Kre"/>
                                         <exclude reference="182-kj-c0s"/>
                                         <exclude reference="6M0-jQ-E1I"/>
@@ -660,13 +673,13 @@
                                         <include reference="Mur-u6-jET"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="Sdg-fl-6xU"/>
+                                        <exclude reference="h46-MU-pEM"/>
                                         <include reference="9Ct-XD-Ohr"/>
                                         <exclude reference="dmd-WB-iU7"/>
                                         <include reference="iTg-GK-84u"/>
                                         <exclude reference="AHd-SQ-DOP"/>
                                         <include reference="UQv-aR-j2p"/>
-                                        <include reference="Sdg-fl-6xU"/>
-                                        <exclude reference="h46-MU-pEM"/>
                                         <exclude reference="2et-Wr-NsL"/>
                                         <include reference="CIC-yv-Kre"/>
                                         <exclude reference="tvD-It-zKk"/>
