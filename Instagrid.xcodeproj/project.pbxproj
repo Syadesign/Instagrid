@@ -15,7 +15,6 @@
 		04EEC8A72253656300F9ACA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04EEC8A52253656300F9ACA1 /* LaunchScreen.storyboard */; };
 		04EEC8B12253710300F9ACA1 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04EEC8B02253710300F9ACA1 /* ThirstySoftRegular.otf */; };
 		04EEC8B32253711100F9ACA1 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04EEC8B22253711100F9ACA1 /* Delm-Medium.otf */; };
-		04FBC475228B0AB2006B7EAB /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FBC474228B0AB2006B7EAB /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		04EEC8A82253656300F9ACA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04EEC8B02253710300F9ACA1 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		04EEC8B22253711100F9ACA1 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
-		04FBC474228B0AB2006B7EAB /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 		04EEC89B2253656100F9ACA1 /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
-				04FBC473228ADCD0006B7EAB /* Model */,
 				04EEC8A82253656300F9ACA1 /* Info.plist */,
 				04EEC8B622537B8F00F9ACA1 /* Controller */,
 				04EEC8B522537B7000F9ACA1 /* View */,
@@ -100,14 +97,6 @@
 				04EEC89C2253656100F9ACA1 /* AppDelegate.swift */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		04FBC473228ADCD0006B7EAB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				04FBC474228B0AB2006B7EAB /* Image.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +173,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04EEC89F2253656100F9ACA1 /* ViewController.swift in Sources */,
-				04FBC475228B0AB2006B7EAB /* Image.swift in Sources */,
 				0440A47E225CDC5400E047CF /* GridView.swift in Sources */,
 				04EEC89D2253656100F9ACA1 /* AppDelegate.swift in Sources */,
 			);

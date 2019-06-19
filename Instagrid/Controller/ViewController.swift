@@ -47,7 +47,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Use this variable to assign a number to each button of the grid View. I use it for the imagePickerController.
     var buttonNumber = 0
     
-    var imageToShare = Image()
     var imagePicker = UIImagePickerController()
     
     let screenHeigh = UIScreen.main.bounds.height
@@ -236,7 +235,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 })
             }
             // Open the sharing menu
-            if let image = self.imageToShare.convertView(view: gridView)  {
+            if let image = convertView(view: gridView)  {
                 let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
                 activityController.completionWithItemsHandler = { activity, success, items, error in
                     self.gridView.resetGrid()
@@ -248,6 +247,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 present(activityController, animated: true, completion: nil)
             }
         }
+    }
+    
+    func convertView(view: GridView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let imgConverted = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return imgConverted
     }
     
     /// 3 buttons to change the background color of the gridView
